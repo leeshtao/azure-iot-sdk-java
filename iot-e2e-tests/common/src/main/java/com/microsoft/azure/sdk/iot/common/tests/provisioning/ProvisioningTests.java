@@ -130,10 +130,7 @@ public class ProvisioningTests extends ProvisioningCommon
     @Category(LongRunningTestCategory.class)
     public void groupEnrollmentCanBlockReprovisioning() throws Exception
     {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setUpdateHubAssignment(false);
-
-        reprovisioningFlow(EnrollmentType.GROUP, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo());
+        throw new Exception("You shouldn't have run this!");
     }
 
     @Test
