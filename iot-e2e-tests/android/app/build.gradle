@@ -58,8 +58,8 @@ android {
     testOptions {
         unitTests.all {
             useJUnit {
-                includeCategories 'com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory'
-                excludeCategories 'com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory'
+                includeCategories 'com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory, com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory, com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory'
+                excludeCategories 'com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory, com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory, com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory'
             }
         }
     }
