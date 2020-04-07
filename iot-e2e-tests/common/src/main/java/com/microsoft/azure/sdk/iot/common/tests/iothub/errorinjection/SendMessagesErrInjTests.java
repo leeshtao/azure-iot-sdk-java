@@ -16,8 +16,11 @@ import com.microsoft.azure.sdk.iot.service.Device;
 import com.microsoft.azure.sdk.iot.service.Module;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.FaultInjectionTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -35,6 +38,7 @@ import static com.microsoft.azure.sdk.iot.service.auth.AuthenticationType.SELF_S
  * Test class containing all error injection tests to be run on JVM and android pertaining to sending messages to the cloud. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
+@Category({FaultInjectionTestCategory.class, LongRunningTestCategory.class})
 public class SendMessagesErrInjTests extends SendMessagesCommon
 {
     public SendMessagesErrInjTests(IotHubClientProtocol protocol, AuthenticationType authenticationType, ClientType clientType, String publicKeyCert, String privateKey, String x509Thumbprint, boolean withProxy) throws Exception

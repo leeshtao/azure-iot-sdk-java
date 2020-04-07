@@ -27,7 +27,11 @@ import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
 import com.microsoft.azure.sdk.iot.service.devicetwin.Pair;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubNotFoundException;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.InvalidCertificateTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import javax.net.ssl.SSLHandshakeException;
 import java.io.IOException;
@@ -52,6 +56,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(InvalidCertificateTestCategory.class)
     public void individualEnrollmentWithInvalidRemoteServerCertificateFails() throws Exception
     {
         enrollmentWithInvalidRemoteServerCertificateFails(EnrollmentType.INDIVIDUAL);
@@ -88,6 +93,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(InvalidCertificateTestCategory.class)
     public void groupEnrollmentWithInvalidRemoteServerCertificateFails() throws Exception
     {
         enrollmentWithInvalidRemoteServerCertificateFails(EnrollmentType.GROUP);

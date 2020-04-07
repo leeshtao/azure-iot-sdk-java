@@ -5,13 +5,14 @@
 
 package com.microsoft.azure.sdk.iot.common.tests.iothub.serviceclient;
 
-import com.microsoft.azure.sdk.iot.common.helpers.IotHubIntegrationTest;
+import com.microsoft.azure.sdk.iot.common.helpers.IntegrationTest;
 import com.microsoft.azure.sdk.iot.deps.serializer.ExportImportDeviceParser;
 import com.microsoft.azure.sdk.iot.deps.serializer.StorageAuthenticationType;
 import com.microsoft.azure.sdk.iot.deps.twin.TwinCollection;
 import com.microsoft.azure.sdk.iot.service.*;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationMechanism;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubTooManyDevicesException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import com.microsoft.azure.storage.CloudStorageAccount;
 import com.microsoft.azure.storage.StorageException;
 import com.microsoft.azure.storage.blob.*;
@@ -19,6 +20,7 @@ import mockit.Deencapsulation;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -36,7 +38,8 @@ import static junit.framework.TestCase.fail;
  * Test class containing all tests to be run on JVM and android pertaining to Export and Import jobs. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
-public class ExportImportTests extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class ExportImportTests extends IntegrationTest
 {
     private static final long IMPORT_EXPORT_TEST_TIMEOUT = 8 * 60 * 1000;
     private static final long IMPORT_JOB_TIMEOUT = 6 * 60 * 1000;

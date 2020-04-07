@@ -22,7 +22,6 @@
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <skipITs>true</skipITs>
     </properties>
     <dependencies>
         <dependency>
@@ -60,39 +59,16 @@
             <version>${iot-service-client-version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- test dependencies -->
-        <dependency>
-            <groupId>org.jmockit</groupId>
-            <artifactId>jmockit</artifactId>
-            <version>1.24</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-all</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>com.microsoft.azure.sdk.iot</groupId>
             <artifactId>iot-e2e-common</artifactId>
             <version>0.26.0</version>
         </dependency>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
             <groupId>net.jcip</groupId>
             <artifactId>jcip-annotations</artifactId>
             <version>1.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -147,10 +123,9 @@
                     <!--Maven will spawn up as many threads as it wants/can while running tests in parallel-->
                     <useUnlimitedThreads>true</useUnlimitedThreads>
 
-                    <skipITs>${skipITs}</skipITs>
-                    <argLine>
-                        -javaagent:${settings.localRepository}/org/jmockit/jmockit/1.24/jmockit-1.24.jar
-                    </argLine>
+                    <groups>${testcase.groups}</groups>
+                    <excludedGroups>${testcase.excludedgroups}</excludedGroups>
+                    <rerunFailingTestsCount>2</rerunFailingTestsCount>
                 </configuration>
             </plugin>
             <plugin>

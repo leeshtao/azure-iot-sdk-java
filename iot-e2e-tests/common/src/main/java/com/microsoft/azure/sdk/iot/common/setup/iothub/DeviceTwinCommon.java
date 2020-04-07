@@ -20,9 +20,11 @@ import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
 import com.microsoft.azure.sdk.iot.service.devicetwin.Pair;
 import com.microsoft.azure.sdk.iot.service.devicetwin.RawTwinQuery;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.experimental.categories.Category;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -43,7 +45,8 @@ import static org.junit.Assert.*;
  * Utility functions, setup and teardown for all device twin integration tests. This class should not contain any tests,
  * but any child class should.
  */
-public class DeviceTwinCommon extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class DeviceTwinCommon extends IntegrationTest
 {
     // Max time to wait to see it on Hub
     protected static final long PERIODIC_WAIT_TIME_FOR_VERIFICATION = 1000; // 1 sec

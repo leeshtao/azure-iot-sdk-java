@@ -17,11 +17,13 @@ import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceMethod;
 import com.microsoft.azure.sdk.iot.service.devicetwin.MethodResult;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.experimental.categories.Category;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -44,7 +46,8 @@ import static org.junit.Assert.assertNotNull;
  * Utility functions, setup and teardown for all device method integration tests. This class should not contain any tests,
  * but any children class should.
  */
-public class DeviceMethodCommon extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class DeviceMethodCommon extends IntegrationTest
 {
     protected static String iotHubConnectionString = "";
 

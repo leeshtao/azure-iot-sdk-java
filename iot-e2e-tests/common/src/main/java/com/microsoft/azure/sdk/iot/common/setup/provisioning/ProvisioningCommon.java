@@ -5,10 +5,7 @@
 
 package com.microsoft.azure.sdk.iot.common.setup.provisioning;
 
-import com.microsoft.azure.sdk.iot.common.helpers.CorrelationDetailsLoggingAssert;
-import com.microsoft.azure.sdk.iot.common.helpers.ProvisioningIntegrationTest;
-import com.microsoft.azure.sdk.iot.common.helpers.Tools;
-import com.microsoft.azure.sdk.iot.common.helpers.X509CertificateGenerator;
+import com.microsoft.azure.sdk.iot.common.helpers.*;
 import com.microsoft.azure.sdk.iot.deps.twin.DeviceCapabilities;
 import com.microsoft.azure.sdk.iot.device.DeviceClient;
 import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
@@ -28,9 +25,12 @@ import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwin;
 import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
 import com.microsoft.azure.sdk.iot.service.devicetwin.Query;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import junit.framework.AssertionFailedError;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
 import javax.crypto.Mac;
@@ -48,7 +48,8 @@ import static com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDevice
 import static junit.framework.TestCase.fail;
 import static org.junit.Assert.*;
 
-public class ProvisioningCommon extends ProvisioningIntegrationTest
+@Category(DeviceProvisioningServiceTestCategory.class)
+public class ProvisioningCommon extends IntegrationTest
 {
     public enum AttestationType
     {

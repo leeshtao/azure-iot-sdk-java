@@ -12,7 +12,9 @@ import com.microsoft.azure.sdk.iot.device.DeviceClient;
 import com.microsoft.azure.sdk.iot.device.IotHubClientProtocol;
 import com.microsoft.azure.sdk.iot.service.BaseDevice;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.AfterClass;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -20,6 +22,7 @@ import java.util.Collection;
 
 
 @RunWith(Parameterized.class)
+@Category(IoTHubTestCategory.class)
 public class HubTierConnectionJVMRunner extends HubTierConnectionTests
 {
     static Collection<BaseDevice> identities;

@@ -14,7 +14,12 @@ import com.microsoft.azure.sdk.iot.device.Message;
 import com.microsoft.azure.sdk.iot.service.Device;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
+
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -67,6 +72,13 @@ public class SendMessagesTests extends SendMessagesCommon
         this.testInstance.setup();
 
         IotHubServicesCommon.sendMessages(testInstance.client, testInstance.protocol, NORMAL_MESSAGES_TO_SEND, RETRY_MILLISECONDS, SEND_TIMEOUT_MILLISECONDS, 0, null);
+    }
+
+    @Category(LongRunningTestCategory.class)
+    @Test
+    public void sendMessagesLongRunning() throws Exception
+    {
+        Thread.sleep(5000);
     }
 
     @Test

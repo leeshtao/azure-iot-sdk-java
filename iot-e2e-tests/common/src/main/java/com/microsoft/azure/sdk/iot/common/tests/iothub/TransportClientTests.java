@@ -14,7 +14,9 @@ import com.microsoft.azure.sdk.iot.device.Message;
 import com.microsoft.azure.sdk.iot.service.*;
 import com.microsoft.azure.sdk.iot.service.devicetwin.*;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.*;
+import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
 import java.io.ByteArrayInputStream;
@@ -41,7 +43,8 @@ import static junit.framework.TestCase.fail;
  * Test class containing all tests to be run on JVM and android pertaining to multiplexing with the TransportClient class.
  * Class needs to be extended in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
-public class TransportClientTests extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class TransportClientTests extends IntegrationTest
 {
     //how many devices to test multiplexing with
     private static final int MAX_DEVICE_MULTIPLEX = 3;

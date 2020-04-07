@@ -13,7 +13,10 @@ import com.microsoft.azure.sdk.iot.device.Message;
 import com.microsoft.azure.sdk.iot.device.ModuleClient;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
+import com.microsoft.azure.sdk.iot.testcategories.FaultInjectionTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,7 @@ import static com.microsoft.azure.sdk.iot.service.auth.AuthenticationType.SELF_S
  * Test class containing all error injection tests to be run on JVM and android pertaining to GetDeviceTwin/GetTwin. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
+@Category({FaultInjectionTestCategory.class, LongRunningTestCategory.class})
 public class GetTwinErrInjTests extends DeviceTwinCommon
 {
     public GetTwinErrInjTests(IotHubClientProtocol protocol, AuthenticationType authenticationType, ClientType clientType, String publicKeyCert, String privateKey, String x509Thumbprint)

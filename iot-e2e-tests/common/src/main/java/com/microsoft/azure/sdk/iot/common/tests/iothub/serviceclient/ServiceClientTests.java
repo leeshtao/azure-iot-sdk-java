@@ -5,12 +5,13 @@
 
 package com.microsoft.azure.sdk.iot.common.tests.iothub.serviceclient;
 
-import com.microsoft.azure.sdk.iot.common.helpers.ConditionalIgnoreRule;
-import com.microsoft.azure.sdk.iot.common.helpers.IotHubIntegrationTest;
-import com.microsoft.azure.sdk.iot.common.helpers.StandardTierOnlyRule;
+import com.microsoft.azure.sdk.iot.common.helpers.*;
 import com.microsoft.azure.sdk.iot.common.helpers.Tools;
 import com.microsoft.azure.sdk.iot.service.*;
+import com.microsoft.azure.sdk.iot.testcategories.InvalidCertificateTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runners.Parameterized;
 
 import java.io.IOException;
@@ -27,7 +28,8 @@ import static org.junit.Assert.*;
  * Test class containing all tests to be run on JVM and android pertaining to C2D communication using the service client. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
-public class ServiceClientTests extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class ServiceClientTests extends IntegrationTest
 {
     protected static String iotHubConnectionString = "";
     protected static String invalidCertificateServerConnectionString = "";
@@ -116,6 +118,7 @@ public class ServiceClientTests extends IotHubIntegrationTest
     }
 
     @Test (timeout=MAX_TEST_MILLISECONDS)
+    @Category(InvalidCertificateTestCategory.class)
     public void serviceClientValidatesRemoteCertificateWhenSendingTelemetry() throws IOException
     {
         boolean expectedExceptionWasCaught = false;
@@ -140,6 +143,7 @@ public class ServiceClientTests extends IotHubIntegrationTest
     }
 
     @Test (timeout=MAX_TEST_MILLISECONDS)
+    @Category(InvalidCertificateTestCategory.class)
     public void serviceClientValidatesRemoteCertificateWhenGettingFeedbackReceiver() throws IOException
     {
         boolean expectedExceptionWasCaught = false;
@@ -166,6 +170,7 @@ public class ServiceClientTests extends IotHubIntegrationTest
     }
 
     @Test (timeout=MAX_TEST_MILLISECONDS)
+    @Category(InvalidCertificateTestCategory.class)
     public void serviceClientValidatesRemoteCertificateWhenGettingFileUploadFeedbackReceiver() throws IOException
     {
         boolean expectedExceptionWasCaught = false;

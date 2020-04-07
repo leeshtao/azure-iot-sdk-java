@@ -14,9 +14,12 @@ import com.microsoft.azure.sdk.iot.service.Module;
 import com.microsoft.azure.sdk.iot.service.RegistryManager;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 
@@ -31,7 +34,8 @@ import java.util.UUID;
 import static com.microsoft.azure.sdk.iot.device.IotHubClientProtocol.*;
 import static junit.framework.TestCase.assertTrue;
 
-public class TokenRenewalTests extends IotHubIntegrationTest
+@Category({IoTHubTestCategory.class, LongRunningTestCategory.class})
+public class TokenRenewalTests extends IntegrationTest
 {
     protected static String iotHubConnectionString;
     private static RegistryManager registryManager;

@@ -5,21 +5,14 @@
 
 package com.microsoft.azure.sdk.iot.common.helpers;
 
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.Before;
+import org.junit.experimental.categories.Category;
 
 import static org.junit.Assume.assumeTrue;
 
+@Category(IoTHubTestCategory.class)
 public class IotHubIntegrationTest extends IntegrationTest
 {
-    @Override
-    public boolean isProvisioningTest()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean isIotHubTest()
-    {
-        return true;
-    }
 }

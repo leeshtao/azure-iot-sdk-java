@@ -13,10 +13,12 @@ import com.microsoft.azure.sdk.iot.device.exceptions.ModuleClientException;
 import com.microsoft.azure.sdk.iot.service.*;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.experimental.categories.Category;
 import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 
@@ -39,7 +41,8 @@ import static junit.framework.TestCase.fail;
  * Utility functions, setup and teardown for all D2C telemetry integration tests. This class should not contain any tests,
  * but any child class should.
  */
-public class SendMessagesCommon extends IotHubIntegrationTest
+@Category(IoTHubTestCategory.class)
+public class SendMessagesCommon extends IntegrationTest
 {
     //How much sequential connections each device will open and close in the multithreaded test.
     protected static final Integer NUM_CONNECTIONS_PER_DEVICE = 5;

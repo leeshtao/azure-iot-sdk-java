@@ -12,7 +12,10 @@ import com.microsoft.azure.sdk.iot.device.Message;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.devicetwin.Pair;
+import com.microsoft.azure.sdk.iot.testcategories.FaultInjectionTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.util.*;
 
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertEquals;
  * Test class containing all error injection tests to be run on JVM and android pertaining to DesiredProperties. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
+@Category({FaultInjectionTestCategory.class, LongRunningTestCategory.class})
 public class DesiredPropertiesErrInjTests extends DeviceTwinCommon
 {
     public DesiredPropertiesErrInjTests(IotHubClientProtocol protocol, AuthenticationType authenticationType, ClientType clientType, String publicKeyCert, String privateKey, String x509Thumbprint)

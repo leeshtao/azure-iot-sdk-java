@@ -13,7 +13,10 @@ import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 import com.microsoft.azure.sdk.iot.service.Module;
 import com.microsoft.azure.sdk.iot.service.auth.AuthenticationType;
 import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+import com.microsoft.azure.sdk.iot.testcategories.FaultInjectionTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ import static org.junit.Assert.assertTrue;
  * Test class containing all error injection tests to be run on JVM and android pertaining to receiving messages. Class needs to be extended
  * in order to run these tests as that extended class handles setting connection strings and certificate generation
  */
+@Category({FaultInjectionTestCategory.class, LongRunningTestCategory.class})
 public class ReceiveMessagesErrInjTests extends ReceiveMessagesCommon
 {
     public ReceiveMessagesErrInjTests(IotHubClientProtocol protocol, AuthenticationType authenticationType, ClientType clientType, String publicKeyCert, String privateKey, String x509Thumbprint) throws Exception
