@@ -3,16 +3,17 @@
 
 $runTestCmd = "mvn install -T 2C"
 
-#Choose which profile to run as. Only one profile allowed per run, so we need one profile per possible combination
-if (IsPullRequestBuild -and ShouldSkipIotHubTests -and ShouldSkipDPSTests)
+# Choose which profile to run as. Only one profile allowed per run, so we need one profile per possible combination
+# Extra parenthesis do matter here due to these being function calls
+if ((IsPullRequestBuild) -and (ShouldSkipIotHubTests) -and (ShouldSkipDPSTests))
 {
     $runTestCmd += " -P PRTestsWithoutIoTHubOrDPS"
 }
-elseif (IsPullRequestBuild -and ShouldSkipIotHubTests)
+elseif ((IsPullRequestBuild) -and (ShouldSkipIotHubTests))
 {
     $runTestCmd += " -P PRTestsWithoutIoTHub"
 }
-elseif (IsPullRequestBuild -and ShouldSkipDPSTests)
+elseif ((IsPullRequestBuild) -and (ShouldSkipDPSTests))
 {
     $runTestCmd += " -P PRTestsWithoutDPS"
 }
