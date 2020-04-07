@@ -1,7 +1,10 @@
 ﻿# This script determines, for the provided android test group, if any tests need to be run
 
-#Sets env vars for
-./vsts/determine_tests_to_run.ps1
+#Dot source some helper functions
+. ./vsts/determine_tests_to_run.ps1
+
+$runIotHubTests = ShouldSkipIotHubTests
+$runProvisioningTests = ShouldSkipDPSTests
 
 Write-Host "##vso[task.setvariable variable=task.android.needToRunTestGroup]no"
 
@@ -61,7 +64,7 @@ ForEach ($line in $($paths -split "`r`n"))
 			{
 				$confirmedTestRunnerFilePaths += $line
 
-				if ($line.toLower().Contains("iothub") -and ($Env:runIotHubTests -eq "true"))
+				if ($line.toLower().Contains("iothub") -and ($runIotHubTests -eq "true"))
 				{
 				    Write-Host "This test group includes iot hub tests, and iot hub tests have to be run, so this test group will run"
 				    Write-Host "##vso[task.setvariable variable=task.android.needToRunTestGroup]yes"
@@ -70,7 +73,7 @@ ForEach ($line in $($paths -split "`r`n"))
                     exit 0
 				}
 
-				if ($line.toLower().Contains("provisioning") -and ($Env:runProvisioningTests -eq "true"))
+				if ($line.toLower().Contains("provisioning") -and ($runProvisioningTests -eq "true"))
 				{
 				    Write-Host "This test group includes provisioning tests, and provisioning tests have to be run, so this test group will run"
 				    Write-Host "##vso[task.setvariable variable=task.android.needToRunTestGroup]yes"
