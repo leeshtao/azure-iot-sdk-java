@@ -3,8 +3,8 @@
 #Dot source some helper functions
 . ./vsts/determine_tests_to_run.ps1
 
-$runIotHubTests = ShouldSkipIotHubTests
-$runProvisioningTests = ShouldSkipDPSTests
+$runIotHubTests = !(ShouldSkipIotHubTests)
+$runProvisioningTests = !(ShouldSkipDPSTests)
 
 Write-Host "##vso[task.setvariable variable=task.android.needToRunTestGroup]no"
 

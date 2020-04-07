@@ -116,6 +116,7 @@ public class ProvisioningTests extends ProvisioningCommon
 
     @Test
     @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
+    @Category(LongRunningTestCategory.class)
     public void groupEnrollmentReprovisioningCanResetTwin() throws Exception
     {
         ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
