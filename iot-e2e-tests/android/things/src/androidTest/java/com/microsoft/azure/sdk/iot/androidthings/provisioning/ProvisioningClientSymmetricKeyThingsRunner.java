@@ -19,28 +19,9 @@ import org.junit.runners.Parameterized;
 import java.util.Collection;
 
 @TestGroupA
-@RunWith(Parameterized.class)
-public class ProvisioningClientSymmetricKeyThingsRunner extends ProvisioningTests
+public class ProvisioningClientSymmetricKeyThingsRunner
 {
     @Rule
     public Rerun count = new Rerun(3);
 
-    public ProvisioningClientSymmetricKeyThingsRunner(ProvisioningDeviceClientTransportProtocol protocol, AttestationType attestationType)
-    {
-        super(protocol, attestationType);
-    }
-
-    //This function is run before even the @BeforeClass annotation, so it is used as the @BeforeClass method
-    @Parameterized.Parameters(name = "{0} with {1}")
-    public static Collection inputs() throws Exception
-    {
-        iotHubConnectionString = BuildConfig.IotHubConnectionString;
-        provisioningServiceConnectionString = BuildConfig.DeviceProvisioningServiceConnectionString;
-        provisioningServiceGlobalEndpoint = BuildConfig.DeviceProvisioningServiceGlobalEndpoint;
-        provisioningServiceIdScope = BuildConfig.DeviceProvisioningServiceIdScope;
-        provisioningServiceGlobalEndpointWithInvalidCert = BuildConfig.InvalidDeviceProvisioningServiceGlobalEndpoint;
-        provisioningServiceWithInvalidCertConnectionString = BuildConfig.InvalidDeviceProvisioningServiceConnectionString;
-
-        return ProvisioningCommon.inputs(AttestationType.SYMMETRIC_KEY);
-    }
 }

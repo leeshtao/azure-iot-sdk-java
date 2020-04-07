@@ -22,7 +22,6 @@ import org.junit.runners.Parameterized;
 import java.util.Collection;
 
 @TestGroup2
-@RunWith(Parameterized.class)
 public class ProvisioningClientX509AndroidRunner extends ProvisioningTests
 {
     @Rule
@@ -30,27 +29,6 @@ public class ProvisioningClientX509AndroidRunner extends ProvisioningTests
 
     @Rule
     public ReportHelper reportHelper = Factory.getReportHelper();
-
-    public ProvisioningClientX509AndroidRunner(ProvisioningDeviceClientTransportProtocol protocol, AttestationType attestationType)
-    {
-        super(protocol, attestationType);
-    }
-
-    //This function is run before even the @BeforeClass annotation, so it is used as the @BeforeClass method
-    @Parameterized.Parameters(name = "{0} with {1}")
-    public static Collection inputs() throws Exception
-    {
-        iotHubConnectionString = BuildConfig.IotHubConnectionString;
-        isBasicTierHub = Boolean.parseBoolean(BuildConfig.IsBasicTierHub);
-        provisioningServiceConnectionString = BuildConfig.DeviceProvisioningServiceConnectionString;
-        provisioningServiceIdScope = BuildConfig.DeviceProvisioningServiceIdScope;
-        provisioningServiceGlobalEndpointWithInvalidCert = BuildConfig.InvalidDeviceProvisioningServiceGlobalEndpoint;
-        provisioningServiceWithInvalidCertConnectionString = BuildConfig.InvalidDeviceProvisioningServiceConnectionString;
-        farAwayIotHubConnectionString = BuildConfig.FarAwayIotHubConnectionString;
-        customAllocationWebhookUrl = BuildConfig.CustomAllocationWebhookUrl;
-
-        return ProvisioningCommon.inputs(AttestationType.X509); //tpm tests can't be run on Android until infrastructure is setup
-    }
 
     @After
     public void labelSnapshot()
