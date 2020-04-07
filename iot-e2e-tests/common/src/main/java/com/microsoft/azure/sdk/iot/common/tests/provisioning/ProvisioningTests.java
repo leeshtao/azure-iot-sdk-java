@@ -57,13 +57,6 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
-    @Category(InvalidCertificateTestCategory.class)
-    public void individualEnrollmentWithInvalidRemoteServerCertificateFails() throws Exception
-    {
-        enrollmentWithInvalidRemoteServerCertificateFails(EnrollmentType.INDIVIDUAL);
-    }
-
-    @Test
     public void ProvisioningWithCustomPayloadFlow() throws Exception
     {
         String jsonPayload = "{\"a\":\"b\"}";
@@ -94,89 +87,10 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
-    @Category(InvalidCertificateTestCategory.class)
-    public void groupEnrollmentWithInvalidRemoteServerCertificateFails() throws Exception
-    {
-        enrollmentWithInvalidRemoteServerCertificateFails(EnrollmentType.GROUP);
-    }
-
-    @Test
-    @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
-    public void groupEnrollmentReprovisioningCanKeepTwin() throws Exception
-    {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setMigrateDeviceData(true);
-        reprovisionPolicy.setUpdateHubAssignment(true);
-
-        DeviceCapabilities deviceCapabilities = new DeviceCapabilities();
-        deviceCapabilities.setIotEdge(true);
-
-        reprovisioningFlow(EnrollmentType.GROUP, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo(), deviceCapabilities);
-    }
-
-    @Test
-    @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
-    @Category(LongRunningTestCategory.class)
-    public void groupEnrollmentReprovisioningCanResetTwin() throws Exception
-    {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setMigrateDeviceData(false);
-        reprovisionPolicy.setUpdateHubAssignment(true);
-
-        reprovisioningFlow(EnrollmentType.GROUP, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo());
-    }
-
-    @Test
     @Category(LongRunningTestCategory.class)
     public void groupEnrollmentCanBlockReprovisioning() throws Exception
     {
         throw new Exception("You shouldn't have run this!");
-    }
-
-    @Test
-    public void groupEnrollmentWithCustomAllocationPolicy() throws Exception
-    {
-        customAllocationFlow(EnrollmentType.GROUP);
-    }
-
-    @Test
-    @Category(LongRunningTestCategory.class)
-    @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
-    public void individualEnrollmentReprovisioningCanKeepTwin() throws Exception
-    {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setMigrateDeviceData(true);
-        reprovisionPolicy.setUpdateHubAssignment(true);
-
-        reprovisioningFlow(EnrollmentType.INDIVIDUAL, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo());
-    }
-
-    @Test
-    @Category(LongRunningTestCategory.class)
-    @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
-    public void individualEnrollmentReprovisioningCanResetTwin() throws Exception
-    {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setMigrateDeviceData(false);
-        reprovisionPolicy.setUpdateHubAssignment(true);
-
-        reprovisioningFlow(EnrollmentType.INDIVIDUAL, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo());
-    }
-
-    @Test
-    @Category(LongRunningTestCategory.class)
-    public void individualEnrollmentCanBlockReprovisioning() throws Exception
-    {
-        ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
-        reprovisionPolicy.setUpdateHubAssignment(false);
-
-        reprovisioningFlow(EnrollmentType.INDIVIDUAL, null, reprovisionPolicy, null, getStartingHubs(), getHubsToReprovisionTo());
-    }
-
-    @Test
-    public void individualEnrollmentWithCustomAllocationPolicy() throws Exception
-    {
-        customAllocationFlow(EnrollmentType.INDIVIDUAL);
     }
 
     /***
