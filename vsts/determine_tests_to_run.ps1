@@ -4,106 +4,65 @@
 
 # For all other builds (nightly builds, for instance), this script will set environment variables to run all e2e tests.
 
-Write-Host "Determining tests to run..."
-$Env:runIotHubTests = "false"
-$Env:runProvisioningTests = "false"
-
-$targetBranch = ($env:TARGET_BRANCH)
-if (($env:TARGET_BRANCH).toLower().Contains("system.pullrequest.targetbranch"))
+function IsPullRequestBuild
 {
-    Write-Host "Assuming this build is not a pull request build, running all tests"
-
-    $Env:runIotHubTests = "true"
-    $Env:runProvisioningTests = "true"
-
-    exit 0
+	return !($env:TARGET_BRANCH -and $env:TARGET_BRANCH.toLower().Contains("system.pullrequest.targetbranch"))
 }
 
-$GitDiff = & git diff origin/$targetBranch --name-only
-ForEach ($line in $($GitDiff -split "`r`n"))
+function ShouldSkipIotHubTests
 {
-	if ($line.EndsWith(".md", "CurrentCultureIgnoreCase") -or $line.EndsWith(".png", "CurrentCultureIgnoreCase"))
+	if (!IsPullRequestBuild)
 	{
-        # These file types are ignored when determining if source code changes require running e2e tests
+		return $false
 	}
-	elseif ($line.toLower().Contains("sample"))
+
+	return !(DoChangesAffectAnyOfFolders @("iothub", "common", "shared", "e2e", "vsts"))
+}
+
+function ShouldSkipDPSTests
+{
+	if (ShouldSkipIotHubTests)
 	{
-	    # Sample changes don't necessitate running e2e tests
-    }
-	else
-	{
-	    # If code changes were made to vsts pipeline
-		if ($line.toLower().Contains("vsts"))
-		{
-            $Env:runIotHubTests = "true"
-            $Env:runProvisioningTests = "true"
-		}
-
-	    # If code changes were made to provisioning sdk code or to provisioning e2e tests
-		if ($line.toLower().Contains("provisioning"))
-		{
-			$Env:runProvisioningTests = "true"
-		}
-
-        # If code changes were made to iot hub e2e tests
-		if ($line.toLower().Contains("iothub"))
-		{
-            $Env:runIotHubTests = "true"
-            $Env:runProvisioningTests = "true"
-		}
-
-		# If code changes were made to device client
-		if ($line.toLower().Contains("iot-device-client/src/main") -or $line.toLower().Contains("iot-device-client/pom.xml"))
-		{
-		    $Env:runIotHubTests = "true"
-		    $Env:runProvisioningTests = "true"
-		}
-
-        # If code changes were made to service client
-        if ($line.toLower().Contains("iot-service-client/src/main") -or $line.toLower().Contains("iot-service-client/pom.xml"))
-        {
-            $Env:runIotHubTests = "true"
-            $Env:runProvisioningTests = "true"
-        }
-
-        # Both provisioning and iot hub depend on deps package
-		if ($line.toLower().Contains("deps/src/main") -or $line.toLower().Contains("deps/pom.xml"))
-		{
-			$Env:runIotHubTests = "true"
-			$Env:runProvisioningTests = "true"
-		}
-
-        # E2E common code can be used in any test, so we must run every test
-		if ($line.toLower().Contains("iot-e2e-tests/common/src/main/java/com/microsoft/azure/sdk/iot/common/helpers"))
-        {
-            $Env:runIotHubTests = "true"
-            $Env:runProvisioningTests = "true"
-        }
-
-        # Android helpers can be used in any test, so we must run every test
-		if ($line.toLower().Contains("android/helper"))
-        {
-            $Env:runIotHubTests = "true"
-            $Env:runProvisioningTests = "true"
-        }
+		return !(DoChangesAffectAnyOfFolders @("Provisioning", "Security"))
 	}
+
+	#Provisioning tests depend on iot hub packages, so if iot hub tests aren't being skipped, neither should provisioning tests
+	return $false
 }
 
-if ($Env:runIotHubTests -eq "true")
+# $folderNames is an array of strings where each string is the name of a folder within the codebase to look for in the git diff between the source and target branches
+# For instance, $folderNames can be "iothub", "common", "shared" if you want to see if and changes happened within the iothub folder, the common folder, or in the shared folder
+function DoChangesAffectAnyOfFolders($folderNames)
 {
-    Write-Host "Will run iot hub tests"
-}
-else
-{
-    Write-Host "Will not run iot hub tests"
-}
+	#TARGET_BRANCH is defined by the yaml file that calls this script. It is equal to the azure devops pre-defined variable "$(System.PullRequest.TargetBranch)" which contains either
+	# the target branch of the pull request build if it is a pull request build, or a default value "system.pullrequest.targetbranch" if it is not a pull request build.
+	$GitDiff = & git diff origin/$env:TARGET_BRANCH --name-only
+	ForEach ($line in $($GitDiff -split "`r`n"))
+	{
+		if ($line.EndsWith(".md", "CurrentCultureIgnoreCase") -or $line.EndsWith(".png", "CurrentCultureIgnoreCase"))
+		{
+			# These file types are ignored when determining if source code changes require running e2e tests
+		}
+		elseif ($line.toLower().Contains("sample"))
+		{
+			# Sample changes don't necessitate running e2e tests
+		}
+		elseif ($line.toLower().Contains("vsts"))
+		{
+	        # If code changes were made to vsts pipeline, it's best to just run all tests
+		    return $true;
+		}
+		else
+		{
+			foreach ($folderName in $folderNames)
+			{
+				if ($line.toLower().Contains($folderName.toLower()))
+				{
+					return $true
+				}
+			}
+		}
+	}
 
-if ($Env:runProvisioningTests -eq "true")
-{
-    Write-Host "Will run provisioning tests"
+	return $false
 }
-else
-{
-    Write-Host "Will not run provisioning tests"
-}
-

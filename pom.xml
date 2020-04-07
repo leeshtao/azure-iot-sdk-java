@@ -19,6 +19,7 @@
         <module>deps</module>
         <module>iot-e2e-tests</module>
         <module>provisioning</module>
+        <module>testcategories</module>
     </modules>
     <properties>
         <iot-device-client-artifact-id>iot-device-client</iot-device-client-artifact-id>
@@ -75,4 +76,72 @@
             </plugin>
         </plugins>
     </build>
+
+    <!--One profile can be set at command line such as 'mvn install -P IntegrationTests' and only the appropriately tagged tests will run
+    Supposedly you can do more than one profile at once, but it seems buggy because it won't behave the way you would expect-->
+    <profiles>
+        <profile>
+            <id>PRTestsWithoutIoTHub</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory, com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory, com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory</testcase.groups>
+                <testcase.excludedgroups>com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory, com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory, com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory</testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>PRTestsWithoutDPS</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory, com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory, com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory</testcase.groups>
+                <testcase.excludedgroups>com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory, com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory, com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory</testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>PRTestsWithoutIoTHubOrDPS</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory, com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory</testcase.groups>
+                <testcase.excludedgroups>com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory, com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory, com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory, com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory</testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>IntegrationTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory</testcase.groups>
+                <testcase.excludedgroups></testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>LongRunningTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory</testcase.groups>
+                <testcase.excludedgroups></testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>UnitTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory</testcase.groups>
+                <testcase.excludedgroups></testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>PRTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory, com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory</testcase.groups>
+                <testcase.excludedgroups>com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory, com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory</testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>IoTHubTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory</testcase.groups>
+                <testcase.excludedgroups></testcase.excludedgroups>
+            </properties>
+        </profile>
+        <profile>
+            <id>DPSTests</id>
+            <properties>
+                <testcase.groups>com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory</testcase.groups>
+                <testcase.excludedgroups></testcase.excludedgroups>
+            </properties>
+        </profile>
+    </profiles>
 </project>

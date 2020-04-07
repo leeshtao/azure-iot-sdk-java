@@ -55,6 +55,15 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.all {
+            useJUnit {
+                includeCategories 'com.microsoft.azure.sdk.iot.testcategories.IntegrationTestCategory'
+                excludeCategories 'com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory'
+            }
+        }
+    }
+
     packagingOptions {
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
@@ -96,7 +105,7 @@ dependencies {
     androidTestImplementation 'com.microsoft.appcenter:espresso-test-extension:1.3'
     androidTestImplementation 'com.android.support:support-annotations:27.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.8.2'
 }
 
 repositories {
