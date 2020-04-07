@@ -8,6 +8,7 @@ package com.microsoft.azure.sdk.iot.android.provisioning;
 import com.microsoft.appcenter.espresso.Factory;
 import com.microsoft.appcenter.espresso.ReportHelper;
 import com.microsoft.azure.sdk.iot.android.BuildConfig;
+import com.microsoft.azure.sdk.iot.android.helper.LongRunningTestAnnotation;
 import com.microsoft.azure.sdk.iot.android.helper.TestGroup1;
 import com.microsoft.azure.sdk.iot.common.helpers.Rerun;
 import com.microsoft.azure.sdk.iot.common.setup.provisioning.ProvisioningCommon;
@@ -16,6 +17,7 @@ import com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClientT
 
 import org.junit.After;
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -50,6 +52,12 @@ public class ProvisioningClientSymmetricKeyAndroidRunner extends ProvisioningTes
         customAllocationWebhookUrl = BuildConfig.CustomAllocationWebhookUrl;
 
         return ProvisioningCommon.inputs(AttestationType.SYMMETRIC_KEY);
+    }
+
+    @Test
+    @LongRunningTestAnnotation
+    public void someExtraTest() throws Exception {
+        throw new Exception("Extra test!");
     }
 
     @After

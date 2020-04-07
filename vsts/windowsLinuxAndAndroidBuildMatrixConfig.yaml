@@ -296,5 +296,5 @@ jobs:
       serverEndpoint: 'AppCenter connection aziotclb'
       appSlug: 'Azure-Iot-Sdk/androide2e'
       devices: 'Azure-Iot-Sdk/api28_2'
-      runOptions: '--test-parameter annotation=com.microsoft.azure.sdk.iot.android.helper.$(ANDROID_TEST_GROUP_ID), notAnnotation=com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory'
+      runOptions: '--test-parameter annotation=com.microsoft.azure.sdk.iot.android.helper.$(ANDROID_TEST_GROUP_ID), notAnnotation=com.microsoft.azure.sdk.iot.android.helper.LongRunningTestAnnotation'
       showDebugOutput: true
