@@ -13,6 +13,9 @@ import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
 import org.apache.qpid.proton.engine.TransportException;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -32,6 +35,7 @@ import static org.junit.Assert.assertThat;
  * Methods: 84%
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpConnectionTest
 {
     @Mocked

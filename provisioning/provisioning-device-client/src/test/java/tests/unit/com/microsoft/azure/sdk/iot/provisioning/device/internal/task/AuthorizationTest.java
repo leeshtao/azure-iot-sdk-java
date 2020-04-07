@@ -12,6 +12,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLContext;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertNull;
     Coverage : 100% lines, 100% method
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AuthorizationTest
 {
     //SRS_Authorization_25_001: [ Constructor shall create null SasToken and null SSL Context ]

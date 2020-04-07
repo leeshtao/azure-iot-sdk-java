@@ -10,6 +10,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.device.internal.task
 import com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningStatus;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ProvisioningStatus.*;
 import static org.junit.Assert.assertEquals;
@@ -17,6 +20,7 @@ import static org.junit.Assert.assertEquals;
 /* Unit tests for Provisioning Status
  * Coverage 100% line, 100% method
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningStatusTest
 {
     //SRS_ProvisioningStatus_25_001: [ Constructor to create an enum ]

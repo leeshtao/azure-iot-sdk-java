@@ -8,6 +8,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.configs.X509CertificateW
 import mockit.Deencapsulation;
 import mockit.Mocked;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +18,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service X509 certificates
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class X509CertificateWithInfoTest
 {
     //PEM encoded representation of the public key certificate

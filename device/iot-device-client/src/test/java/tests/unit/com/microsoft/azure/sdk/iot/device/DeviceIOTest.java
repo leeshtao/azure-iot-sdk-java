@@ -12,6 +12,9 @@ import com.microsoft.azure.sdk.iot.device.transport.IotHubTransport;
 import mockit.*;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -33,6 +36,7 @@ import static org.junit.Assert.*;
  * 97% line
  */
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class DeviceIOTest
 {
 

@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClientT
 import com.microsoft.azure.sdk.iot.provisioning.device.internal.contract.UrlPathBuilder;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import java.io.IOException;
 
@@ -21,6 +24,7 @@ import static org.junit.Assert.assertEquals;
  * Coverage : 100% method, 91% line
  */
 
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class UrlPathBuilderTest
 {
     private static final String TEST_SCOPE = "testScope";

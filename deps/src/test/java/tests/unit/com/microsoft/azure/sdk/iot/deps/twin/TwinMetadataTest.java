@@ -6,6 +6,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.twin;
 import com.microsoft.azure.sdk.iot.deps.twin.TwinMetadata;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import java.util.Date;
@@ -17,6 +21,7 @@ import static org.junit.Assert.*;
  * Unit tests for the TwinMetadata
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class TwinMetadataTest
 {
     /* SRS_TWIN_METADATA_21_001: [The constructor shall parse the provided `lastUpdated` String to the Date and store it as the TwinMetadata lastUpdated.] */

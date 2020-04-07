@@ -9,6 +9,9 @@ import com.microsoft.azure.sdk.iot.device.ProductInfo;
 import com.microsoft.azure.sdk.iot.device.transport.TransportUtils;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -17,6 +20,7 @@ import static junit.framework.TestCase.assertEquals;
  * 100% methods
  * 100% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ProductInfoTest
 {
     //Tests_SRS_PRODUCTINFO_34_001: [This function shall set the extra field to an empty string.]

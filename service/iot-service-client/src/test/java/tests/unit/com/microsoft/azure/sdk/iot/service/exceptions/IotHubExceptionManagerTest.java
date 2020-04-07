@@ -9,6 +9,9 @@ import com.microsoft.azure.sdk.iot.service.exceptions.*;
 import com.microsoft.azure.sdk.iot.service.transport.http.HttpResponse;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import java.util.HashMap;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertThat;
  * 100% methods, 100% lines covered
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubExceptionManagerTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_IOTHUBEXCEPTIONMANAGER_12_001: [The function shall throw IotHubBadFormatException if the Http response status equal 400]

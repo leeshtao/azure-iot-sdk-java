@@ -11,11 +11,15 @@ import com.microsoft.azure.sdk.iot.service.ServiceAuthenticationWithSharedAccess
 import mockit.Deencapsulation;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ServiceAuthenticationWithSharedAccessPolicyKeyTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_SERVICEAUTHENTICATIONWITHSHAREDACCESSKEY_12_002: [The function shall throw IllegalArgumentException if the input object is null]

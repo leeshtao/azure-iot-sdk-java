@@ -8,6 +8,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.serializer;
 import com.microsoft.azure.sdk.iot.deps.serializer.QueryRequestParser;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +20,7 @@ import static org.junit.Assert.assertEquals;
     Unit tests for QueryResponseParser
     Coverage result : method - 100%, line - 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class QueryRequestParserTest
 {
     //Tests_SRS_QUERY_REQUEST_PARSER_25_001: [The constructor shall create an instance of the QueryRequestParser.]

@@ -15,6 +15,9 @@ import org.apache.qpid.proton.amqp.messaging.Rejected;
 import org.apache.qpid.proton.amqp.messaging.Released;
 import org.apache.qpid.proton.engine.Delivery;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertTrue;
 
@@ -23,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 * 100% methods covered
 * 95% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsMessageTest
 {
     @Mocked

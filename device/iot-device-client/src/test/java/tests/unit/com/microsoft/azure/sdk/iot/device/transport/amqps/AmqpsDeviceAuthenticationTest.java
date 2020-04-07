@@ -13,6 +13,9 @@ import org.apache.qpid.proton.amqp.Symbol;
 import org.apache.qpid.proton.engine.SslDomain;
 import org.apache.qpid.proton.engine.Transport;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertTrue;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsDeviceAuthenticationTest
 {
     @Mocked

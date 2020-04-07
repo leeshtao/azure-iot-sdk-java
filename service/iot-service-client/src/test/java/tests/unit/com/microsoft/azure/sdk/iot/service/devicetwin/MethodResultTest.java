@@ -7,6 +7,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.service.devicetwin;
 
 import com.microsoft.azure.sdk.iot.service.devicetwin.MethodResult;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,7 +19,8 @@ import static org.junit.Assert.assertNull;
 /**
  * Unit tests for method result class
  */
-public class MethodResultTest 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
+public class MethodResultTest
 {
     /* Tests_SRS_METHODRESULT_21_001: [The constructor shall save the status and payload representing the method invoke result.] */
     /* Tests_SRS_METHODRESULT_21_002: [There is no restrictions for these values, it can be empty, or null.] */

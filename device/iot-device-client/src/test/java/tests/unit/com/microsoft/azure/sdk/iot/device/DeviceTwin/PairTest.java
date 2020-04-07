@@ -5,9 +5,13 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.DeviceTwin;
 
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.Pair;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.*;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class PairTest
 {
     /*

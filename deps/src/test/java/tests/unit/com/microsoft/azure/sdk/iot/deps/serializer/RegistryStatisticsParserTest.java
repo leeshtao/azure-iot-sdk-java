@@ -6,6 +6,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.serializer;
 import com.microsoft.azure.sdk.iot.deps.serializer.RegistryStatisticsParser;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -14,6 +18,7 @@ import static junit.framework.TestCase.assertEquals;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class RegistryStatisticsParserTest
 {
     //Tests_SRS_REGISTRY_STATISTICS_PROPERTIES_PARSER_34_001: [This method shall return a json representation of this.]

@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProviderX509;
 import com.microsoft.azure.sdk.iot.provisioning.security.exceptions.SecurityProviderException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import javax.net.ssl.*;
 import java.security.*;
@@ -25,6 +28,7 @@ import static org.junit.Assert.assertEquals;
  *  Unit tests for SecurityProviderX509 and SecurityProvider
  *  Coverage : 97% lines, 100% methods
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SecurityProviderX509Test
 {
     private static final String TEST_COMMON_NAME = "testCN";

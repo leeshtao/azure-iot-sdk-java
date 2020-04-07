@@ -13,6 +13,9 @@ import com.microsoft.msr.RiotEmulator.RIoT;
 import mockit.Deencapsulation;
 import mockit.Mocked;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import java.security.Key;
 import java.security.cert.X509Certificate;
@@ -24,6 +27,7 @@ import static junit.framework.TestCase.*;
  * Unit tests for SecurityProviderDiceEmulator
  * Coverage - 100% line, 100% method
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SecurityProviderDiceEmulatorTest
 {
     private static final String TEST_ALIAS = "TestAlias";

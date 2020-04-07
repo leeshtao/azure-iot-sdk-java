@@ -16,6 +16,9 @@ import com.microsoft.azure.sdk.iot.service.transport.http.HttpRequest;
 import com.microsoft.azure.sdk.iot.service.transport.http.HttpResponse;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +33,7 @@ import static org.junit.Assert.*;
     Unit Tests for Query
     Coverage - method : 100%, line : 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class QueryTest
 {
     private static final QueryType DEFAULT_QUERY_TYPE = QueryType.TWIN;

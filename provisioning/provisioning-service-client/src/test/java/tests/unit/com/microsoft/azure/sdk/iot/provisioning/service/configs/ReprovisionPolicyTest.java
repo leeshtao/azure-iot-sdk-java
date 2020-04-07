@@ -6,6 +6,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.configs;
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.ReprovisionPolicy;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -13,7 +16,8 @@ import static junit.framework.TestCase.assertEquals;
  * Unit tests for reprovisionPolicy
  * 100% methods, 100% lines covered
  */
-public class ReprovisionPolicyTest 
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
+public class ReprovisionPolicyTest
 {
     private static final boolean expectedUpdateHubAssignment = true;
     private static final boolean expectedMigrateDeviceData = true;

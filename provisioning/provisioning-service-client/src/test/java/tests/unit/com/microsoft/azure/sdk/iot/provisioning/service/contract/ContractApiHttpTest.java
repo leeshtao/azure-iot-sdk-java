@@ -15,6 +15,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.contract.ContractApiHttp
 import com.microsoft.azure.sdk.iot.provisioning.service.exceptions.ProvisioningServiceClientTransportException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -30,6 +33,7 @@ import static org.junit.Assert.assertNotNull;
  * 100% methods, 98% lines covered
  *    * impossible enum condition on getHttpMethodFromDeviceRegistrationMethod
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ContractApiHttpTest
 {
     @Mocked

@@ -12,6 +12,10 @@ import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -30,6 +34,7 @@ import static org.junit.Assert.assertThat;
 /** Unit tests for HttpConnection.
  * Coverage : 78% method, 79% line */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class HttpConnectionTest
 {
     @Mocked

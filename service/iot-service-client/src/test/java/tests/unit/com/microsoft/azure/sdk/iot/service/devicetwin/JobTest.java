@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.service.devicetwin.Job;
 import com.microsoft.azure.sdk.iot.service.jobs.JobStatus;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.Date;
@@ -21,7 +24,8 @@ import static org.junit.Assert.*;
  * Unit tests for Job
  * 100% methods, 100% lines covered
  */
-public class JobTest 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
+public class JobTest
 {
     @Mocked
     JobClient mockedJobClient;

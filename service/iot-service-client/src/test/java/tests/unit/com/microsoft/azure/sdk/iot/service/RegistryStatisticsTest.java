@@ -11,6 +11,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 
@@ -21,6 +24,7 @@ import static junit.framework.TestCase.assertEquals;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class RegistryStatisticsTest
 {
     //Tests_SRS_SERVICE_SDK_JAVA_REGISTRY_STATISTICS_34_001: [This method shall convert the provided parser into a RegistryStatistics object and return it]

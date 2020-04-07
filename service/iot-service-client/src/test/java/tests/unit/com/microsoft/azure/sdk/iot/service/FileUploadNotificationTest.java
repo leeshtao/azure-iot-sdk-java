@@ -7,12 +7,16 @@ package tests.unit.com.microsoft.azure.sdk.iot.service;
 
 import com.microsoft.azure.sdk.iot.service.FileUploadNotification;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class FileUploadNotificationTest
 {
     //Tests_SRS_SERVICE_SDK_JAVA_FILEUPLOADNOTIFICATION_25_001: [ The getter for device ID ]

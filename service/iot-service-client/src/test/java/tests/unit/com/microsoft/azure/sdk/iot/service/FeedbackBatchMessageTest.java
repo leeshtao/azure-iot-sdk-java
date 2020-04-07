@@ -10,6 +10,9 @@ import com.microsoft.azure.sdk.iot.service.FeedbackBatchMessage;
 import com.microsoft.azure.sdk.iot.service.FeedbackStatusCode;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.json.stream.JsonParsingException;
@@ -19,6 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 /** Unit tests for FeedbackBatchMessage */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class FeedbackBatchMessageTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_FEEDBACKBATCHMESSAGE_12_001: [The function shall return an empty FeedbackBatch object if the input is empty or null]

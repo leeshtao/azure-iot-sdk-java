@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.device.transport.HttpProxySocketFactory;
 import mockit.*;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -30,6 +33,7 @@ import static org.junit.Assert.*;
  * Lines: 89%
  * Methods: 93%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpsConnectionTest
 {
     @Mocked

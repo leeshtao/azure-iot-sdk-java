@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.internal.ProvisioningDevi
 import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProvider;
 import mockit.Mocked;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -21,6 +24,7 @@ import static org.junit.Assert.assertNull;
     Unit test for ProvisioningDeviceClientConfigTest
     Coverage : 100% Method, 100% lines
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningDeviceClientConfigTest
 {
     private static final String END_POINT = "testEndPoint";

@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.device.fileupload.FileUploadTask;
 import com.microsoft.azure.sdk.iot.device.transport.https.HttpsTransportManager;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +33,7 @@ import static org.junit.Assert.assertNotNull;
  * Unit tests for file upload class.
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class FileUploadTest
 {
     @Mocked

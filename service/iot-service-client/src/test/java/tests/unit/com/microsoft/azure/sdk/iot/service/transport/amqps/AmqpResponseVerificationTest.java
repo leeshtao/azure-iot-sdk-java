@@ -10,9 +10,13 @@ import org.apache.qpid.proton.amqp.transport.AmqpError;
 import org.apache.qpid.proton.amqp.transport.DeliveryState;
 import org.apache.qpid.proton.amqp.transport.ErrorCondition;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.*;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpResponseVerificationTest
 {
     @Mocked

@@ -18,6 +18,9 @@ import org.apache.qpid.proton.amqp.messaging.Section;
 import org.apache.qpid.proton.engine.*;
 import org.apache.qpid.proton.message.impl.MessageImpl;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -32,6 +35,7 @@ import static org.junit.Assert.*;
  * methods: 100%
  * lines: 84%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsDeviceAuthenticationX509Test
 {
     private final String CBS_TO = "$cbs";

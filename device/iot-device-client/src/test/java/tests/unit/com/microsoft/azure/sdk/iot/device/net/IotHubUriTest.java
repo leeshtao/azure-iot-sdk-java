@@ -6,6 +6,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.net;
 import com.microsoft.azure.sdk.iot.device.net.IotHubUri;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +17,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 /** Unit tests for IotHubUri. */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubUriTest
 {
     private static final String API_VERSION = Deencapsulation.getField(IotHubUri.class, "API_VERSION");

@@ -7,6 +7,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.microsoft.azure.sdk.iot.deps.serializer.JobsStatisticsParser;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.text.ParseException;
 
@@ -16,6 +20,7 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for jobs statistics deserializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class JobsStatisticsParserTest
 {
     /* Tests_SRS_JOBSSTATISTICSPARSER_21_001: [The getDeviceCount shall return the value of the deviceCount counter.] */

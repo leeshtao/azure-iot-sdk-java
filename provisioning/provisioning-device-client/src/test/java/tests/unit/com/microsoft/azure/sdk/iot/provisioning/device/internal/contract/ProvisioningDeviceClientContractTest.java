@@ -16,6 +16,9 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertTrue;
@@ -25,6 +28,7 @@ import static org.junit.Assert.assertTrue;
     Coverage : 45% line, 100% method
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningDeviceClientContractTest
 {
     private static final String TEST_SCOPE_ID = "testScopeID";

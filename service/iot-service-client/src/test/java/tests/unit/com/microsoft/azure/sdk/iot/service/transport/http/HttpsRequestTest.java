@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.service.transport.http.HttpResponse;
 import mockit.*;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertThat;
 
 /** Unit tests for HttpRequest. */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpsRequestTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_HTTPSREQUEST_12_001: [The function shall open a connection with the given URL as the endpoint.]

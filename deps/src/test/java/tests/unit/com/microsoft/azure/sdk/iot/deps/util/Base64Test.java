@@ -5,6 +5,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.util;
 
 import com.microsoft.azure.sdk.iot.deps.util.Base64;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.UnsupportedEncodingException;
 
@@ -14,6 +18,7 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for Base64
  * 100% methods, 98% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class Base64Test
 {
     /* Tests_SRS_BASE64_21_001: [The decodeBase64Local shall decode the provided `base64Values` in a byte array using the Base64 format define in the RFC2045.] */

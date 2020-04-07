@@ -11,7 +11,12 @@ import mockit.Expectations;
 import mockit.Mocked;
 import org.apache.qpid.proton.engine.Event;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ErrorLoggingBaseHandlerTest
 {
     @Mocked Event mockEvent;

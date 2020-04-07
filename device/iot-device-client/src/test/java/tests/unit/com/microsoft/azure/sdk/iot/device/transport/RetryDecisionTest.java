@@ -5,8 +5,12 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.transport;
 
 import com.microsoft.azure.sdk.iot.device.transport.RetryDecision;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import static org.junit.Assert.*;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class RetryDecisionTest
 {
     // Tests_SRS_RETRYDECISION_28_001: [The constructor shall save the duration and getRetryDecision]

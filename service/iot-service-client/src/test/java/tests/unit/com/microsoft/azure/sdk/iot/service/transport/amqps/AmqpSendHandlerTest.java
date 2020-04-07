@@ -36,6 +36,9 @@ import org.apache.qpid.proton.reactor.Reactor;
 import org.apache.qpid.proton.reactor.Selectable;
 import org.apache.qpid.proton.reactor.Task;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLHandshakeException;
@@ -53,6 +56,7 @@ import static org.junit.Assert.assertTrue;
 
 /** Unit tests for AmqpSendHandler */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpSendHandlerTest
 {
     private Integer exceptionCount = 0;

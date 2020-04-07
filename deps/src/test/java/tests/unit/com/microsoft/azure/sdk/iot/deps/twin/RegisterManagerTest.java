@@ -9,6 +9,10 @@ import com.microsoft.azure.sdk.iot.deps.twin.DeviceCapabilities;
 import com.microsoft.azure.sdk.iot.deps.twin.RegisterManager;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,6 +20,7 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for the TwinState
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class RegisterManagerTest
 {
     private final static String REGISTER_MANAGER_SAMPLE =

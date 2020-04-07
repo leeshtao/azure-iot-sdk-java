@@ -10,6 +10,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -23,6 +26,7 @@ import static org.junit.Assert.*;
     Unit test for MqttConnection
     Coverage : 100% method, 100% line
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MqttConnectionTest
 {
     private static final String SERVER_URI = "test.host.name";

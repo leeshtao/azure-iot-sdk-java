@@ -9,11 +9,15 @@ import mockit.Expectations;
 import mockit.Mocked;
 import mockit.VerificationsInOrder;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /** Unit tests for Signature. */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class SignatureTest
 {
     @Mocked SignatureHelper mockSigHelper;

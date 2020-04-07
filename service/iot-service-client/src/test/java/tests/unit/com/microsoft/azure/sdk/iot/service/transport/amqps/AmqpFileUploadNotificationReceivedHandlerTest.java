@@ -32,6 +32,9 @@ import org.apache.qpid.proton.engine.impl.TransportInternal;
 import org.apache.qpid.proton.message.Message;
 import org.apache.qpid.proton.reactor.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLHandshakeException;
@@ -44,6 +47,7 @@ import static org.junit.Assert.assertTrue;
 
 /** Unit tests for AmqpFileUploadNotificationReceivedHandler */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpFileUploadNotificationReceivedHandlerTest
 {
     @Mocked Handshaker handshaker;

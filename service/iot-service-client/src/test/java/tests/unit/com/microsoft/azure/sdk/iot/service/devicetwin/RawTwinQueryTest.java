@@ -16,6 +16,9 @@ import com.microsoft.azure.sdk.iot.service.transport.http.HttpMethod;
 import mockit.*;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +30,7 @@ import static org.junit.Assert.*;
     Unit Tests for Raw Query
     Coverage : 100% methods, 100% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class RawTwinQueryTest
 {
     @Mocked Query mockedQuery;

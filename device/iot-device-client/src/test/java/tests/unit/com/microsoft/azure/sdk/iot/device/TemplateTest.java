@@ -9,6 +9,9 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +26,7 @@ import static org.junit.Assert.*;
 */
 
 // Unit tests for Template.
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class TemplateTest
 {
     // Mock global objects which you do not want to test for this class

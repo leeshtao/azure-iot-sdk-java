@@ -10,9 +10,13 @@ import com.microsoft.azure.sdk.iot.device.transport.amqps.*;
 import com.microsoft.azure.sdk.iot.device.transport.amqps.exceptions.*;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertTrue;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsExceptionTranslatorTest
 {
     //Tests_SRS_AMQPSEXCEPTIONTRANSLATOR_34_001: [The function shall map amqp exception code "amqp:internal-error" to TransportException "AmqpInternalErrorException".]

@@ -15,6 +15,9 @@ import mockit.Verifications;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.Base32;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
@@ -37,6 +40,7 @@ import static org.junit.Assert.assertTrue;
      SecurityProviderTpm : 95% lines, 100% methods
 
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SecurityProviderTpmTest
 {
     private static final byte[] ENROLLMENT_KEY = "testEk".getBytes();

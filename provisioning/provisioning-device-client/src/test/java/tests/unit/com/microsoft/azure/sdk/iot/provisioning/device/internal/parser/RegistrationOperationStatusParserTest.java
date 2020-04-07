@@ -10,6 +10,9 @@ import com.google.gson.JsonParseException;
 import com.microsoft.azure.sdk.iot.provisioning.device.internal.parser.RegistrationOperationStatusParser;
 import com.microsoft.azure.sdk.iot.provisioning.device.internal.parser.TpmRegistrationResultParser;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertNull;
     X509RegistrationResultParser: 91% method, 92% line
     TpmRegistrationResultParser: 100% method, 100% line
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class RegistrationOperationStatusParserTest
 {
     private static final String TEST_REGISTRATION_ID = "testId";

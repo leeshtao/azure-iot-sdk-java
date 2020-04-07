@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.device.transport.amqps.IoTHubConnectionType;
 import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProvider;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOError;
@@ -30,6 +33,7 @@ import static org.junit.Assert.assertNull;
  * Methods: 100%
  * Lines: 98%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class DeviceClientTest
 {
     @Mocked

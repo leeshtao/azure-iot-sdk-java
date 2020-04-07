@@ -9,6 +9,9 @@ import com.google.gson.JsonSyntaxException;
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.*;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.Helpers;
 
 import static org.junit.Assert.*;
@@ -17,6 +20,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service query result deserializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class QueryResultTest
 {
     private static final String VALID_CONTINUATION_TOKEN = "{\"token\":\"+RID:Defghij6KLMNOPQ==#RS:1#TRC:2#FPC:AUAAAAAAAAAJQABAAAAAAAk=\",\"range\":{\"min\":\"0123456789abcd\",\"max\":\"FF\"}}";

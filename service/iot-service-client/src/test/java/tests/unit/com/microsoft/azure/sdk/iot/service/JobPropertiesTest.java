@@ -7,6 +7,9 @@ import com.microsoft.azure.sdk.iot.deps.serializer.JobPropertiesParser;
 import com.microsoft.azure.sdk.iot.service.JobProperties;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.Date;
 
@@ -17,6 +20,7 @@ import static junit.framework.TestCase.assertEquals;
  * Methods:100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class JobPropertiesTest
 {
     //Tests_SRS_SERVICE_SDK_JAVA_JOB_PROPERTIES_34_003: [This method shall convert the provided parser into a JobProperty object and return it.]

@@ -10,6 +10,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +20,7 @@ import static org.junit.Assert.assertEquals;
  * Unit test for Device Provisioning Service Authentication With Shared Access Policy Token
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ServiceAuthenticationWithSharedAccessPolicyTokenTest
 {
     @Mocked

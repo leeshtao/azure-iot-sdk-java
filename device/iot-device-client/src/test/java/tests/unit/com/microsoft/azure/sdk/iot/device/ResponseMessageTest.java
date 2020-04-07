@@ -7,12 +7,16 @@ import com.microsoft.azure.sdk.iot.device.IotHubStatusCode;
 import com.microsoft.azure.sdk.iot.device.ResponseMessage;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for Response Message class.
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ResponseMessageTest
 {
     /* Tests_SRS_RESPONSEMESSAGE_21_001: [The constructor shall save the message body by calling super with the body as parameter.] */

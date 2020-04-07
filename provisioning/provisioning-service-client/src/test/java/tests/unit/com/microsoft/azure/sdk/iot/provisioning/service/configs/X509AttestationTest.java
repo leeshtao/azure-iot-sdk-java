@@ -9,6 +9,9 @@ import mockit.Mock;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.*;
 
@@ -16,6 +19,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service X509 attestation
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class X509AttestationTest
 {
     //PEM encoded representation of the public key certificate

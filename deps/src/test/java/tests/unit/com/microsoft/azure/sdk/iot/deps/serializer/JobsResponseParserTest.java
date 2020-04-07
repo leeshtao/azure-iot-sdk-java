@@ -9,6 +9,10 @@ import com.microsoft.azure.sdk.iot.deps.serializer.JobsResponseParser;
 import com.microsoft.azure.sdk.iot.deps.serializer.MethodParser;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import java.text.ParseException;
@@ -20,6 +24,7 @@ import static org.junit.Assert.*;
  * Unit tests for jobs response deserializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class JobsResponseParserTest
 {
     /* Tests_SRS_JOBSRESPONSEPARSER_21_001: [The createFromJson shall create a new instance of JobsResponseParser class.] */

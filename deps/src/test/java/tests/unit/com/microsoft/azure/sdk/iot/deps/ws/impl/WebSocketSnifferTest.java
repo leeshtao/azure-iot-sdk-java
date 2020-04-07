@@ -24,10 +24,15 @@ import com.microsoft.azure.sdk.iot.deps.ws.WebSocketHeader;
 import com.microsoft.azure.sdk.iot.deps.ws.impl.WebSocketSniffer;
 import org.apache.qpid.proton.engine.impl.TransportWrapper;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class WebSocketSnifferTest
 {
     @Test

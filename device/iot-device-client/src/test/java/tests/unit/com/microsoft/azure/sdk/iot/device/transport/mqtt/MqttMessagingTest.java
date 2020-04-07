@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttConnection;
 import com.microsoft.azure.sdk.iot.device.transport.mqtt.MqttMessaging;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -29,6 +32,7 @@ import static org.junit.Assert.assertNull;
  * Unit tests for MqttMessaging.java
  * Code coverage: 100% methods, 100% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MqttMessagingTest
 {
     private static final String CLIENT_ID = "test.iothub";

@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.device.MessageType;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubTransportMessage;
 import org.apache.qpid.proton.amqp.messaging.ApplicationProperties;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceOperations.DEVICE_OPERATION_UNKNOWN;
 import static org.junit.Assert.assertArrayEquals;
@@ -21,6 +24,7 @@ import static org.junit.Assert.assertTrue;
  * Unit test for IotHubTransportMessage
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubTransportMessageTest
 {
     /*

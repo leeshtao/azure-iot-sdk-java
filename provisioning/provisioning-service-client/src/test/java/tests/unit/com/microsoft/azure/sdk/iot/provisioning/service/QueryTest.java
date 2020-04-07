@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.contract.ContractApiHttp
 import com.microsoft.azure.sdk.iot.provisioning.service.exceptions.*;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +25,7 @@ import static org.junit.Assert.*;
  * Unit tests for Query iterator.
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class QueryTest
 {
     @Mocked

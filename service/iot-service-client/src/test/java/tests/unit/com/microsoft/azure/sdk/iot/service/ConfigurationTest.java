@@ -7,6 +7,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashMap;
 
@@ -15,6 +18,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ConfigurationTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_CONFIGURATION_28_001: [The function shall throw IllegalArgumentException if the input string is empty or null]

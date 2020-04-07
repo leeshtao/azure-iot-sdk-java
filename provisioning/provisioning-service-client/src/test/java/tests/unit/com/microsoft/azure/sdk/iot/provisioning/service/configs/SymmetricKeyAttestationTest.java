@@ -7,9 +7,13 @@ import com.microsoft.azure.sdk.iot.deps.util.Base64;
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.SymmetricKeyAttestation;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.*;
 
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SymmetricKeyAttestationTest
 {
     private static final String PRIMARY_KEY_TEXT = "validPrimaryKey";

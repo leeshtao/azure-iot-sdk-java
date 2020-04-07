@@ -11,6 +11,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,6 +26,7 @@ import static org.junit.Assert.assertNotNull;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class QueryCollectionResponseTest
 {
     @Mocked

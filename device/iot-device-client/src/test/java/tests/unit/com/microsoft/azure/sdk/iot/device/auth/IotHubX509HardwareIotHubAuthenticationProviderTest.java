@@ -16,6 +16,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertEquals;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubX509HardwareIotHubAuthenticationProviderTest
 {
     @Mocked SecurityProviderX509 mockSecurityProviderX509;

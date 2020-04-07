@@ -8,6 +8,10 @@ import com.microsoft.azure.sdk.iot.deps.serializer.ParserUtility;
 import com.microsoft.azure.sdk.iot.deps.serializer.StorageAuthenticationType;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.Date;
 
@@ -18,6 +22,7 @@ import static junit.framework.TestCase.assertEquals;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class JobPropertiesParserTest
 {
     //Tests_SRS_JOB_PROPERTIES_PARSER_34_001: [The constructor shall create and return an instance of a JobPropertiesParser object based off the provided json.]

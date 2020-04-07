@@ -6,6 +6,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.serializer;
 import com.microsoft.azure.sdk.iot.deps.serializer.FileUploadStatusParser;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import static org.junit.Assert.assertEquals;
@@ -15,6 +19,7 @@ import static org.junit.Assert.assertNotNull;
  * Unit tests for File Upload Status serializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class FileUploadStatusParserTest
 {
     private static final String VALID_CORRELATION_ID = "somecorrelationid";

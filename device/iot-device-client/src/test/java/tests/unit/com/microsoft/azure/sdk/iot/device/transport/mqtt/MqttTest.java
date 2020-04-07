@@ -17,6 +17,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.paho.client.mqttv3.*;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -34,6 +37,7 @@ import static org.junit.Assert.*;
  * Unit test for Mqtt class.
  * 100% methods, 92% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MqttTest
 {
     private static final String expectedInputName = "someInputName";

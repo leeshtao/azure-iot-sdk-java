@@ -12,6 +12,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ResponseDat
 import mockit.Mocked;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import static com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ContractState.DPS_REGISTRATION_UNKNOWN;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertNull;
     Coverage : 100% method, 100% line
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ResponseDataTest
 {
     //SRS_ResponseData_25_001: [ Constructor shall create null responseData and set the ContractState to DPS_REGISTRATION_UNKNOWN. ]

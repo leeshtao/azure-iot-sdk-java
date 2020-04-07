@@ -20,6 +20,9 @@ import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import java.util.concurrent.ExecutorService;
@@ -33,6 +36,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningDeviceClientTest
 {
     private static final String END_POINT = "testEndPoint";

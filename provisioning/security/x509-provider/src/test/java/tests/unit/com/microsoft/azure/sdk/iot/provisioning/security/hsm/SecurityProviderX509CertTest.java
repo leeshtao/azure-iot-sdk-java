@@ -15,6 +15,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.security.hsm;
  import org.bouncycastle.util.io.pem.PemObject;
  import org.bouncycastle.util.io.pem.PemReader;
  import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
  import java.io.ByteArrayInputStream;
  import java.io.IOException;
@@ -28,7 +31,8 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.security.hsm;
 
  import static org.junit.Assert.assertEquals;
 
- public class SecurityProviderX509CertTest
+ @Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
+public class SecurityProviderX509CertTest
 {
     private static final String expectedPrivateKeyString = "some private key string";
     private static final String expectedPublicKeyCertificateString = "some public key certificate string";

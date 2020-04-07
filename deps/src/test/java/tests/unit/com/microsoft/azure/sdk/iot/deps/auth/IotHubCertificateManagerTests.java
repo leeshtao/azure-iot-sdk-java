@@ -6,6 +6,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.auth;
 import com.microsoft.azure.sdk.iot.deps.auth.IotHubCertificateManager;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.*;
 import java.security.cert.Certificate;
@@ -23,6 +27,7 @@ import static org.junit.Assert.assertTrue;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class IotHubCertificateManagerTests
 {
 /*

@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.device.auth.IotHubX509SoftwareAuthenticationP
 import com.microsoft.azure.sdk.iot.device.exceptions.TransportException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -21,6 +24,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubAuthenticationProviderTest
 {
     @Mocked

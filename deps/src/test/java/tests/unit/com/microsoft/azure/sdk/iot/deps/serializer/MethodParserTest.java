@@ -7,6 +7,10 @@ import com.google.gson.JsonElement;
 import com.microsoft.azure.sdk.iot.deps.serializer.MethodParser;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +28,7 @@ import static tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers.assertMap;
  * Unit tests for Method serializer
  * 100% methods, 97% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class MethodParserTest
 {
     private static final String BIG_STRING_150CHARS =

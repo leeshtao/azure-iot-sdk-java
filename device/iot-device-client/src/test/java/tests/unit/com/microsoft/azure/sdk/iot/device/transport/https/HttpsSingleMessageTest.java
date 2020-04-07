@@ -12,6 +12,9 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +30,7 @@ import static org.junit.Assert.*;
 * 100% methods covered
 * 98% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpsSingleMessageTest
 {
     // Tests_SRS_HTTPSSINGLEMESSAGE_11_001: [The parsed HttpsSingleMessage shall have a copy of the original message body as its body.]

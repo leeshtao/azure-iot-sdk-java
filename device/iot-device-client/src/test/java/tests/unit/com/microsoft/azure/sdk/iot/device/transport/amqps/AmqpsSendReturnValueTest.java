@@ -7,6 +7,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.transport.amqps;
 import com.microsoft.azure.sdk.iot.device.transport.amqps.AmqpsSendReturnValue;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +18,7 @@ import static org.junit.Assert.assertEquals;
 * 100% methods covered
 * 100% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsSendReturnValueTest
 {
     // Tests_SRS_AMQPSSENDRETURNVALUE_12_001: [The constructor shall initialize deliverySuccessful and deliveryHash private member variables with the given arguments.]

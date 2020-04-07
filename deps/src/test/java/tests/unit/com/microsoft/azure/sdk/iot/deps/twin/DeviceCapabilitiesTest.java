@@ -8,9 +8,14 @@ import com.google.gson.GsonBuilder;
 import com.microsoft.azure.sdk.iot.deps.twin.DeviceCapabilities;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class DeviceCapabilitiesTest
 {
     private final static String DEVICECAPABILITIES_SAMPLE = "{\"iotEdge\":false}";

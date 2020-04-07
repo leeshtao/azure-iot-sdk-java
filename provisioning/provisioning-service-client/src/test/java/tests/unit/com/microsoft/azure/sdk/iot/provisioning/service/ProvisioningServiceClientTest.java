@@ -13,6 +13,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,6 +26,7 @@ import static org.junit.Assert.*;
  * Unit tests for Provisioning Service Client public API.
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningServiceClientTest
 {
     @Mocked

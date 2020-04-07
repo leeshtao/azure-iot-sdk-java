@@ -19,6 +19,9 @@ import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,6 +40,7 @@ import static org.junit.Assert.assertTrue;
 /* Unit tests for MqttDeviceMethod
  * Code coverage: 100% methods, 97% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MqttDeviceMethodTest
 {
     @Mocked

@@ -16,6 +16,9 @@ import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProvider;
 import com.microsoft.azure.sdk.iot.provisioning.security.exceptions.SecurityProviderException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOError;
 import java.io.IOException;
@@ -31,6 +34,7 @@ import static org.junit.Assert.*;
  * Methods: 89%
  * Lines: 93%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class InternalClientTest
 {
     private static final long SEND_PERIOD = 10;

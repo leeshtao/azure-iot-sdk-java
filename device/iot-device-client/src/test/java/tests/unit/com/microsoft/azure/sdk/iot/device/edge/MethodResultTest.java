@@ -7,9 +7,13 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.edge;
 
 import com.microsoft.azure.sdk.iot.device.edge.MethodResult;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MethodResultTest
 {
     // Tests_SRS_DIRECTMETHODRESULT_34_001: [This function shall return the saved status.]

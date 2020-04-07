@@ -12,6 +12,9 @@ import mockit.Deencapsulation;
 import mockit.integration.junit4.JMockit;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import static junit.framework.TestCase.assertEquals;
@@ -25,6 +28,7 @@ import static org.junit.Assert.assertNull;
  * 98% lines
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AuthenticationMechanismTest
 {
     String expectedPrimaryThumbprint;

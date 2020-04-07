@@ -12,11 +12,16 @@ import mockit.NonStrictExpectations;
 import mockit.integration.junit4.JMockit;
 import org.apache.qpid.proton.reactor.Reactor;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 /** Unit tests for AmqpConnection.
  * Coverage : 100% method, 100% line */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AmqpReactorTest
 {
     @Mocked

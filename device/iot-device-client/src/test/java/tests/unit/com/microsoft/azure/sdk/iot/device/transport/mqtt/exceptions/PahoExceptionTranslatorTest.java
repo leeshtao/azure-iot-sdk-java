@@ -11,11 +11,15 @@ import com.microsoft.azure.sdk.iot.device.transport.mqtt.exceptions.*;
 import mockit.*;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 
 import static org.junit.Assert.assertTrue;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class PahoExceptionTranslatorTest
 {
     @Mocked

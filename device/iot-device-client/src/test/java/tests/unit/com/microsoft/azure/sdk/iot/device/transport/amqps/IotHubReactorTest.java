@@ -12,6 +12,9 @@ import mockit.StrictExpectations;
 import mockit.Verifications;
 import org.apache.qpid.proton.reactor.Reactor;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -20,6 +23,7 @@ import static junit.framework.TestCase.assertEquals;
 * 100% methods covered
 * 100% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubReactorTest
 {
     @Mocked

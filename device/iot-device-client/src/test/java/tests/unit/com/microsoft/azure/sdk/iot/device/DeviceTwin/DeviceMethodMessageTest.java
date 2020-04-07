@@ -6,6 +6,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.DeviceTwin;
 import com.microsoft.azure.sdk.iot.device.MessageType;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubTransportMessage;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 * 100% methods covered
 * 100% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class DeviceMethodMessageTest
 {
     /*

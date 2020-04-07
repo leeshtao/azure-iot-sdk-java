@@ -8,6 +8,10 @@ import com.microsoft.azure.sdk.iot.deps.serializer.AuthenticationTypeParser;
 import com.microsoft.azure.sdk.iot.deps.serializer.SymmetricKeyParser;
 import com.microsoft.azure.sdk.iot.deps.serializer.X509ThumbprintParser;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
@@ -18,6 +22,7 @@ import static org.junit.Assert.assertNull;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AuthenticationParserTest
 {
     //Tests_SRS_AUTHENTICATION_PARSER_34_001: [This Constructor shall create a new instance of an authenticationParser object and return it.]

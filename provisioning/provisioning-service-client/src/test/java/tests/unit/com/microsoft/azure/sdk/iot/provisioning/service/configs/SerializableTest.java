@@ -7,12 +7,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.Serializable;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.Helpers;
 
 /**
  * Unit tests for Device Provisioning Service Serializable
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SerializableTest
 {
     final String JSON =

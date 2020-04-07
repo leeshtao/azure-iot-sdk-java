@@ -9,6 +9,9 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.net.URISyntaxException;
 
@@ -16,6 +19,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /** Unit tests for IotHubAbandonUri. */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubAbandonUriTest
 {
     @Mocked IotHubUri mockIotHubUri;

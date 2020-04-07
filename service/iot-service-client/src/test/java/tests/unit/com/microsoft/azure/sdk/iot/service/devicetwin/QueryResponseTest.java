@@ -11,6 +11,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -24,6 +27,7 @@ import static org.junit.Assert.*;
  *  Unit test for Query Response
  *  Coverage : 100% method, 100% line
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class QueryResponseTest
 {
     @Mocked

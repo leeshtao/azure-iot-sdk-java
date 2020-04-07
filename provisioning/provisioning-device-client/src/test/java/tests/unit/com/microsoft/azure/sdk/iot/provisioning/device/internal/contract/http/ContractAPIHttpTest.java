@@ -24,6 +24,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.internal.task.ResponseDat
 import mockit.*;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLContext;
@@ -38,6 +41,7 @@ import static org.junit.Assert.assertEquals;
  * Code coverage : 100% methods, 100% lines
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ContractAPIHttpTest
 {
     private static final String TEST_SCOPE_ID = "testScopeID";

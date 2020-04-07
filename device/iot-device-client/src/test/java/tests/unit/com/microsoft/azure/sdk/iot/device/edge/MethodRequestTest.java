@@ -8,10 +8,14 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.edge;
 import com.microsoft.azure.sdk.iot.device.edge.MethodRequest;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNull;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MethodRequestTest
 {
     final static String expectedMethodName = "some method";

@@ -10,6 +10,9 @@ import com.microsoft.azure.sdk.iot.service.IotHubConnectionStringBuilder;
 import mockit.Deencapsulation;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertTrue;
  * 64% methods, 94% lines covered
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubConnectionStringTest
 {
     private static final String URL_API_VERSION = Deencapsulation.getField(IotHubConnectionString.class, "URL_API_VERSION");

@@ -8,9 +8,13 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.hsm.parser;
 import com.microsoft.azure.sdk.iot.device.hsm.parser.TrustBundleResponse;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class TrustBundleResponseTest
 {
     final String testCertificates =                     /*D-TRUST Root Class 3 CA 2 2009*/

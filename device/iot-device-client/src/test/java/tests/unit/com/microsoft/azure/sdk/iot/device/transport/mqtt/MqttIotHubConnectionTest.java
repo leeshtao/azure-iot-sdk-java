@@ -16,6 +16,9 @@ import com.microsoft.azure.sdk.iot.device.transport.TransportUtils;
 import com.microsoft.azure.sdk.iot.device.transport.mqtt.*;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -35,6 +38,7 @@ import static org.junit.Assert.assertTrue;
  * Unit tests for MqttIotHubConnection
  * Code coverage: 100% methods, 95% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MqttIotHubConnectionTest
 {
     private static final String SSL_PREFIX = "ssl://";

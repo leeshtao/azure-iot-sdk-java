@@ -11,6 +11,10 @@ import com.microsoft.azure.sdk.iot.deps.twin.TwinProperties;
 import com.microsoft.azure.sdk.iot.deps.twin.TwinState;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import static org.junit.Assert.*;
@@ -19,6 +23,7 @@ import static org.junit.Assert.*;
  * Unit tests for the TwinState
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class TwinStateTest
 {
     private final static TwinCollection TAGS = new TwinCollection()

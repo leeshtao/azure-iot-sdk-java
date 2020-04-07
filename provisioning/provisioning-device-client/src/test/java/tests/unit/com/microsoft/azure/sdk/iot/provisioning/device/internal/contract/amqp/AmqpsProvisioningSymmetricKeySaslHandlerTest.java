@@ -12,6 +12,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.internal.exceptions.Provi
 import mockit.Deencapsulation;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
@@ -22,6 +25,7 @@ import static org.junit.Assert.assertEquals;
  * Lines: 93%
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AmqpsProvisioningSymmetricKeySaslHandlerTest
 {
     private static final String idScope = "5";

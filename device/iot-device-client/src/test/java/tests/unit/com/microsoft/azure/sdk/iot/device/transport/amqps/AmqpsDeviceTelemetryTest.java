@@ -20,6 +20,9 @@ import org.apache.qpid.proton.engine.Session;
 import org.apache.qpid.proton.message.impl.MessageImpl;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.Date;
@@ -36,6 +39,7 @@ import static org.junit.Assert.*;
 * 100% methods covered
 * 86% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsDeviceTelemetryTest
 {
     final String deviceId = "test-deviceId";

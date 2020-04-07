@@ -9,6 +9,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.configs.DeviceRegistrati
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.EnrollmentStatus;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.Helpers;
 
 import java.util.Date;
@@ -19,6 +22,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service bulk operation result deserializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class DeviceRegistrationStateTest
 {
     private static final String VALID_REGISTRATION_ID = "8be9cd0e-8934-4991-9cbf-cc3b6c7ac647";

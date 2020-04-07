@@ -8,6 +8,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.service.devicetwin;
 import com.microsoft.azure.sdk.iot.service.devicetwin.QueryOptions;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -18,6 +21,7 @@ import static org.junit.Assert.assertNull;
  * 100% Methods
  * 100% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class QueryOptionsTest
 {
     //Tests_SRS_QUERYOPTIONS_34_001: [This constructor shall initialize a QueryOptions object with a default page size of 100 and no continuation token.]

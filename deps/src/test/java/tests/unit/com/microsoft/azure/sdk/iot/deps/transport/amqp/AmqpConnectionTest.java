@@ -7,6 +7,11 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.transport.amqp;
 
 import com.microsoft.azure.sdk.iot.deps.transport.amqp.*;
 import com.microsoft.azure.sdk.iot.deps.util.ObjectLock;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import mockit.Deencapsulation;
 import mockit.Verifications;
 import org.apache.qpid.proton.Proton;
@@ -20,7 +25,12 @@ import org.apache.qpid.proton.amqp.transport.DeliveryState;
 import org.apache.qpid.proton.engine.*;
 import org.apache.qpid.proton.reactor.*;
 import org.apache.qpid.proton.reactor.ReactorOptions;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import java.nio.BufferOverflowException;
@@ -34,6 +44,7 @@ import static org.junit.Assert.assertEquals;
 /** Unit tests for AmqpConnection.
  * Coverage : 95% method, 100% line */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AmqpConnectionTest
 {
     private static final String TEST_HOST_NAME = "testHostName";
@@ -171,7 +182,9 @@ public class AmqpConnectionTest
         //assert
     }
 
+    @Ignore
     @Test (expected = IOException.class)
+    @Category(LongRunningTestCategory.class)
     public void OpenThrowsOnWaitLock() throws IOException, InterruptedException
     {
         AmqpsConnection amqpsConnection = new AmqpsConnection(TEST_HOST_NAME, mockedProvisionOperations, null, null,  false);

@@ -5,6 +5,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.serializer;
 
 import com.microsoft.azure.sdk.iot.deps.serializer.ErrorMessageParser;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,6 +16,7 @@ import static org.junit.Assert.assertEquals;
  * Unit tests for jobs serializer
  * 100% methods, 95% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ErrorMessageParserTest
 {
     /* Codes_SRS_ERROR_MESSAGE_PARSER_21_001: [The bestErrorMessage shall parse the fullErrorMessage as json with format {"Message":"ErrorCode:[error]","ExceptionMessage":"Tracking ID:[tracking id]-TimeStamp:[dateTime]"}.] */

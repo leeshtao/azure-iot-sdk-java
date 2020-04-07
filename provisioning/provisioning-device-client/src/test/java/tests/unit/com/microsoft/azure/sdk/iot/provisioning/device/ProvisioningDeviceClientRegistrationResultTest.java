@@ -9,6 +9,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.device;
 
 import com.microsoft.azure.sdk.iot.provisioning.device.ProvisioningDeviceClientRegistrationResult;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertNull;
 
@@ -16,6 +19,7 @@ import static org.junit.Assert.assertNull;
     Unit tests for ProvisioningDeviceClientRegistrationResult
     Coverage : 100% methods, 100% lines
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningDeviceClientRegistrationResultTest
 {
     //SRS_ProvisioningDeviceClientRegistrationResult_25_001: [ The constructor shall instantiate empty and leave it inheritors to set appropriate values of private members. ]

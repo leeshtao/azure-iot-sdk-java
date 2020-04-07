@@ -5,6 +5,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.device.auth;
 
 import com.microsoft.azure.sdk.iot.device.auth.SignatureHelper;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -13,6 +16,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 /** Unit tests for SignatureHelper. */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class SignatureHelperTest
 {
     protected static Charset UTF8 = StandardCharsets.UTF_8;

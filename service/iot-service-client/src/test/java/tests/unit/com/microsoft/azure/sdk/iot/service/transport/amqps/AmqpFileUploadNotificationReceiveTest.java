@@ -21,6 +21,9 @@ import org.apache.qpid.proton.engine.Event;
 import org.apache.qpid.proton.message.Message;
 import org.apache.qpid.proton.reactor.Reactor;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
@@ -30,6 +33,7 @@ import static org.junit.Assert.assertNotNull;
 
 /** Unit tests for AmqpFileUploadNotificationReceive */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpFileUploadNotificationReceiveTest
 {
     @Mocked Proton proton;

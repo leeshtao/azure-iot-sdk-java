@@ -9,6 +9,9 @@ import com.microsoft.azure.sdk.iot.service.auth.SymmetricKey;
 import mockit.Deencapsulation;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
@@ -19,6 +22,7 @@ import static org.junit.Assert.assertNotEquals;
  * 100% Methods, 100% lines
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class SymmetricKeyTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_SYMMETRICKEY_12_001: [The function shall throw IllegalArgumentException if the length of the key less than 16 or greater than 64]

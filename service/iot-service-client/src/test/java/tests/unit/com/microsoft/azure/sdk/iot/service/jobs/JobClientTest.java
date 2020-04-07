@@ -22,6 +22,9 @@ import com.microsoft.azure.sdk.iot.service.transport.http.HttpResponse;
 import mockit.*;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -39,6 +42,7 @@ import static org.junit.Assert.assertTrue;
  * Unit test for job client
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class JobClientTest
 {
     private static String VALID_SQL_QUERY = null;

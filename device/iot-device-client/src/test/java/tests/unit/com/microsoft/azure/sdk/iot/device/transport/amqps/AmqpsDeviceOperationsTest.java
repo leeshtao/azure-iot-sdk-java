@@ -18,6 +18,9 @@ import org.apache.qpid.proton.amqp.transport.SenderSettleMode;
 import org.apache.qpid.proton.engine.*;
 import org.apache.qpid.proton.message.impl.MessageImpl;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -32,6 +35,7 @@ import static org.junit.Assert.*;
 * 100% methods covered
 * 89% lines covered
 */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsDeviceOperationsTest
 {
     @Mocked

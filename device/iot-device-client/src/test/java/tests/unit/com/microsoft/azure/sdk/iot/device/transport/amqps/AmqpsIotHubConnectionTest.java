@@ -35,6 +35,9 @@ import org.apache.qpid.proton.reactor.Handshaker;
 import org.apache.qpid.proton.reactor.Reactor;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -57,6 +60,7 @@ import static org.junit.Assert.assertNotNull;
  * 88% line
  */
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsIotHubConnectionTest {
 
     final String hostName = "test.host.name";

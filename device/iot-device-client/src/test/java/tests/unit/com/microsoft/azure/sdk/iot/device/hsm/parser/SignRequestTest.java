@@ -12,6 +12,9 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.crypto.Mac;
 
@@ -20,6 +23,7 @@ import java.util.Arrays;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class SignRequestTest
 {
     @Mocked

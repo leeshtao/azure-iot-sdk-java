@@ -12,6 +12,9 @@ import com.microsoft.azure.sdk.iot.device.auth.IotHubSasTokenSoftwareAuthenticat
 import com.microsoft.azure.sdk.iot.device.exceptions.TransportException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -29,6 +32,7 @@ import static org.junit.Assert.assertFalse;
  * Methods: 100%
  * Lines: 100%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubSasTokenSoftwareIotHubAuthenticationProviderTest
 {
     private static String expectedDeviceId = "deviceId";

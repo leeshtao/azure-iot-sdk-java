@@ -10,12 +10,16 @@ import mockit.Deencapsulation;
 import mockit.Expectations;
 import mockit.Mocked;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 
 import static junit.framework.TestCase.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ProxySettingsTest
 {
     @Mocked

@@ -3,6 +3,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.serializer;
 import com.google.gson.JsonElement;
 import com.microsoft.azure.sdk.iot.deps.serializer.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +16,7 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ConfigurationContentParserTest
 {
     //Tests_SRS_CONFIGURATION_CONTENT_PARSER_28_001: [If the provided json is null, empty, an IllegalArgumentException shall be thrown.]

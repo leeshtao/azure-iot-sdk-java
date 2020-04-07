@@ -8,6 +8,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.service;
 import com.microsoft.azure.sdk.iot.service.Tools;
 import mockit.Expectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -22,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Utility function collection
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ToolsTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_TOOLS_12_001: [The function shall return true if the input is null]      @Test

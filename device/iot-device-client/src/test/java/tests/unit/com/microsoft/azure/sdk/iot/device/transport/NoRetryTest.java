@@ -12,10 +12,14 @@ import org.junit.Before;
 import org.junit.runners.Parameterized;
 import org.junit.runner.RunWith;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class NoRetryTest
 {
     private int currentRetryCount;

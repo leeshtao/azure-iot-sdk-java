@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.configs.*;
 import com.microsoft.azure.sdk.iot.provisioning.service.exceptions.ProvisioningServiceClientException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.Helpers;
 
 import java.util.ArrayList;
@@ -24,6 +27,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service Enrollment group serializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class EnrollmentGroupTest
 {
     private static final String VALID_ENROLLMENT_GROUP_ID = "8be9cd0e-8934-4991-9cbf-cc3b6c7ac647";

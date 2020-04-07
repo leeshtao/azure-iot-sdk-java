@@ -12,6 +12,9 @@ import mockit.Deencapsulation;
 import mockit.Expectations;
 import com.microsoft.azure.sdk.iot.deps.util.Base64;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -24,6 +27,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @author zolvarga
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubServiceSasTokenTest
 {
     // Tests_SRS_SERVICE_SDK_JAVA_IOTHUBSERVICESASTOKEN_12_001: [The constructor shall throw IllegalArgumentException if the input object is null]

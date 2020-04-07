@@ -11,6 +11,10 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.FlakyTestCategory;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -25,6 +29,7 @@ import static org.junit.Assert.*;
  * Unit test for Message class.
  * 88% methods, 91% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MessageTest
 {
     protected static Charset UTF8 = StandardCharsets.UTF_8;
@@ -380,6 +385,7 @@ public class MessageTest
 
     // Tests_SRS_MESSAGE_34_064: [The function shall return the saved creationTimeUTC as a string in the format "yyyy-MM-dd_HH:mm:ss.SSSSSSS".]
     @Test
+    @Category(FlakyTestCategory.class) //Only flaky on linux due to openSDK issue
     public void creationTimeUTCFormatWorks()
     {
         //arrange

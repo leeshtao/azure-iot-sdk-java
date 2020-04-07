@@ -16,6 +16,9 @@ import com.microsoft.azure.sdk.iot.device.transport.https.HttpsSingleMessage;
 import com.microsoft.azure.sdk.iot.device.transport.https.HttpsTransportManager;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.URI;
@@ -29,6 +32,7 @@ import static org.junit.Assert.*;
  * Unit test for https transport manager.
  * 100% methods, 95% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpsTransportManagerTest
 {
     @Mocked

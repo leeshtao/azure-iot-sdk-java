@@ -23,6 +23,10 @@ package tests.unit.com.microsoft.azure.sdk.iot.deps.ws.impl;
 
 import com.microsoft.azure.sdk.iot.deps.ws.impl.WebSocketUpgrade;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import com.microsoft.azure.sdk.iot.deps.util.Base64;
 import java.security.InvalidParameterException;
@@ -34,6 +38,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class WebSocketUpgradeTest
 {
     final String RFC_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";

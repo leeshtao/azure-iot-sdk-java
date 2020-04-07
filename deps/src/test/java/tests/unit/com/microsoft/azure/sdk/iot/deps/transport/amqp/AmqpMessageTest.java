@@ -13,6 +13,10 @@ import org.apache.qpid.proton.amqp.messaging.Data;
 import org.apache.qpid.proton.message.Message;
 import org.apache.qpid.proton.message.impl.MessageImpl;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 import com.microsoft.azure.sdk.iot.deps.transport.amqp.AmqpMessage;
 import org.apache.qpid.proton.amqp.messaging.ApplicationProperties;
@@ -24,6 +28,7 @@ import java.util.Map;
 /** Unit tests for AmqpConnection.
  * Coverage : 100% method, 100% line */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AmqpMessageTest
 {
     @Mocked

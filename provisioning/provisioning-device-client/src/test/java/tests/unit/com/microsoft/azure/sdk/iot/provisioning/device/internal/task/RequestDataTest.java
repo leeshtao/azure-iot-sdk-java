@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.device.internal.task.RequestData
 import mockit.Mocked;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLContext;
@@ -28,6 +31,7 @@ import static org.junit.Assert.assertTrue;
     Coverage : 100% method, 100% line
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class RequestDataTest
 {
     private static final byte[] TEST_EK = "testEk".getBytes();

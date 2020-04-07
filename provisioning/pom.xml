@@ -24,4 +24,12 @@
         <module>provisioning-samples</module>
         <module>provisioning-tools</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.azure.sdk.iot</groupId>
+            <artifactId>testcategories</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

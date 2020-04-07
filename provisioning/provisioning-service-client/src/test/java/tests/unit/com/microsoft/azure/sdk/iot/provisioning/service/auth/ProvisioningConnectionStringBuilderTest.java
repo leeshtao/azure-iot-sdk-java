@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.provisioning.service.auth.ProvisioningConnect
 import mockit.Deencapsulation;
 import mockit.Expectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -19,6 +22,7 @@ import static org.junit.Assert.assertNull;
  * Unit test for Provisioning Connection String Builder
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ProvisioningConnectionStringBuilderTest
 {
     private static final String HOST_NAME_PROPERTY_NAME = "HostName";

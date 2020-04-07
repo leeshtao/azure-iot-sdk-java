@@ -9,6 +9,9 @@ import org.apache.qpid.proton.engine.Event;
 import org.apache.qpid.proton.engine.Link;
 import org.apache.qpid.proton.engine.Session;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.nio.BufferOverflowException;
 import java.util.*;
@@ -29,6 +32,7 @@ import static org.junit.Assert.*;
  * Methods: 88%
  * Lines: 91%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsSessionDeviceOperationTest
 {
     @Mocked

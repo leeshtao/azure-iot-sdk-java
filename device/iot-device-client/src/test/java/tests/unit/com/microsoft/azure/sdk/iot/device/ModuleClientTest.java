@@ -18,6 +18,9 @@ import com.microsoft.azure.sdk.iot.device.hsm.IotHubSasTokenHsmAuthenticationPro
 import com.microsoft.azure.sdk.iot.device.transport.https.HttpsTransportManager;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -35,6 +38,7 @@ import static junit.framework.TestCase.assertNotNull;
  * Methods:
  * Lines:
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ModuleClientTest
 {
     @Mocked

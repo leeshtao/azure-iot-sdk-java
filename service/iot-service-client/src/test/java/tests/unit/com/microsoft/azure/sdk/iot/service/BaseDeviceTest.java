@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.service.auth.X509Thumbprint;
 import mockit.Deencapsulation;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
@@ -23,6 +26,7 @@ import static org.junit.Assert.*;
  * 100% Methods
  * 87% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class BaseDeviceTest
 {
     private static final String SAMPLE_THUMBPRINT = "0000000000000000000000000000000000000000";

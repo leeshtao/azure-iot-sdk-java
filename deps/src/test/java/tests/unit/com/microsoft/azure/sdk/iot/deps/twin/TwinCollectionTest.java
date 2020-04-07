@@ -12,6 +12,10 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.deps.Helpers;
 
 import java.util.HashMap;
@@ -23,6 +27,7 @@ import static org.junit.Assert.*;
  * Unit tests for the TwinCollection
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class TwinCollectionTest
 {
     private static final String VALID_KEY_NAME = "Brand";

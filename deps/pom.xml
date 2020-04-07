@@ -38,8 +38,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <skipITs>true</skipITs>
-        <junit-version>4.12</junit-version>
+        <junit-version>4.13</junit-version>
         <mockito-version>1.10.19</mockito-version>
     </properties>
 
@@ -110,8 +109,8 @@
         </dependency>
         <dependency>
             <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>4.11</version>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -125,6 +124,12 @@
             <artifactId>javax.json</artifactId>
             <version>1.0.4</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.azure.sdk.iot</groupId>
+            <artifactId>testcategories</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
@@ -168,8 +173,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.22.0</version>
+                    </dependency>
+                </dependencies>
                 <configuration>
                     <rerunFailingTestsCount>2</rerunFailingTestsCount>
+                    <groups>${testcase.groups}</groups>
+                    <excludedGroups>${testcase.excludedgroups}</excludedGroups>
                 </configuration>
             </plugin>
         </plugins>

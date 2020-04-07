@@ -26,6 +26,9 @@ import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLContext;
@@ -41,6 +44,7 @@ import static junit.framework.TestCase.assertNotNull;
     Coverage : 80% Method, 82% Line
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class StatusTaskTest
 {
     private static final String TEST_OPERATION_ID = "testOperationId";

@@ -10,10 +10,14 @@ import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import mockit.Verifications;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 
 /** Unit tests for IotHubSendTask. */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubSendTaskTest
 {
     @Mocked

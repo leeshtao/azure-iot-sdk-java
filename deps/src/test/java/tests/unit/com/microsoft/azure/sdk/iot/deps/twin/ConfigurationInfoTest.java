@@ -10,9 +10,14 @@ import com.microsoft.azure.sdk.iot.deps.twin.ConfigurationStatus;
 
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.junit.Assert.assertEquals;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class ConfigurationInfoTest
 {
     private final static String CONFIGURATIONS_SAMPLE = "{\"status\":\"targeted\"}";

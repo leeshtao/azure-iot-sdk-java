@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.device.transport.https.HttpsSingleMessage;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertThat;
  *  Coverage 100% method, 100% line
  * */
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class HttpsBatchMessageTest
 {
     protected static Charset UTF8 = StandardCharsets.UTF_8;

@@ -13,10 +13,14 @@ import com.microsoft.azure.sdk.iot.device.auth.SignatureProvider;
 import com.microsoft.azure.sdk.iot.device.exceptions.TransportException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class IotHubSasTokenHsmAuthenticationProviderTest
 {
     @Mocked

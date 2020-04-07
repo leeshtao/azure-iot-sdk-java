@@ -18,6 +18,10 @@ import org.apache.qpid.proton.amqp.transport.SenderSettleMode;
 import org.apache.qpid.proton.engine.*;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 import org.junit.runner.RunWith;
 import java.util.Map;
 
@@ -28,6 +32,7 @@ import static org.junit.Assert.assertEquals;
 /** Unit tests for AmqpConnection.
  * Coverage : 100% method, 100% line */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, IoTHubTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class AmqpDeviceOperationsTest
 {
     private static final String TEST_SENDER_LINK_NAME = "provision_sender_link";

@@ -5,6 +5,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.device;
 
 import com.microsoft.azure.sdk.iot.device.MessageProperty;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -13,6 +16,7 @@ import static org.junit.Assert.*;
  * Unit test for Message Property class.
  * 87% methods, 87% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class MessagePropertyTest
 {
     // Tests_SRS_MESSAGEPROPERTY_11_001: [The constructor shall save the property name and value.]

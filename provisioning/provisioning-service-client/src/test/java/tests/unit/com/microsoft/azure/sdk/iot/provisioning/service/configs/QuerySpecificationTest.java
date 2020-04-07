@@ -7,6 +7,9 @@ import com.google.gson.JsonElement;
 import com.microsoft.azure.sdk.iot.provisioning.service.configs.QuerySpecification;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tests.unit.com.microsoft.azure.sdk.iot.provisioning.service.Helpers;
 
 import static org.junit.Assert.*;
@@ -15,6 +18,7 @@ import static org.junit.Assert.*;
  * Unit tests for Device Provisioning Service query Specification serializer
  * 100% methods, 100% lines covered
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class QuerySpecificationTest
 {
     private static final String VALID_QUERY = "SELECT * FROM enrollments";

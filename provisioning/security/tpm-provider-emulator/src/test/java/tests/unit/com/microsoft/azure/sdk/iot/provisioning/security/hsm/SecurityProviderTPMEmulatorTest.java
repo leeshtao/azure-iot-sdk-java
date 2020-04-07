@@ -12,6 +12,9 @@ import com.microsoft.azure.sdk.iot.provisioning.security.hsm.SecurityProviderTPM
 import junit.framework.TestCase;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import tss.InByteBuf;
 import tss.Tpm;
 import tss.TpmFactory;
@@ -27,6 +30,7 @@ import static org.junit.Assert.assertTrue;
  *  Coverage : 100% Method, 100% Lines
  */
 
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SecurityProviderTPMEmulatorTest
 {
     private static final String[] INVALID_REGISTRATION_IDS = {"UPPERCASE", "UPPERandLowerMix",

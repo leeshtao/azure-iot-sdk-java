@@ -15,6 +15,9 @@ import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProviderX509;
 import com.microsoft.azure.sdk.iot.provisioning.security.exceptions.SecurityProviderException;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.io.IOException;
@@ -30,6 +33,7 @@ import static org.junit.Assert.*;
  * Lines: 91%
  * (Untested lines and method are the unused default constructor)
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class DeviceClientConfigTest
 {
     @Mocked

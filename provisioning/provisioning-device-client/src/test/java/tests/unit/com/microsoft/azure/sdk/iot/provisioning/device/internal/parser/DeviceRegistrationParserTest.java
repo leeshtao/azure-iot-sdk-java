@@ -8,6 +8,9 @@ package tests.unit.com.microsoft.azure.sdk.iot.provisioning.device.internal.pars
 
 import com.microsoft.azure.sdk.iot.provisioning.device.internal.parser.DeviceRegistrationParser;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,6 +19,7 @@ import static org.junit.Assert.assertNotNull;
  *  Unit tests for  DeviceRegistration
  *  Coverage : 100% lines, 100% methods
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class DeviceRegistrationParserTest
 {
     private static final String TEST_REGISTRATION_ID = "testRegistrationId";

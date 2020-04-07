@@ -11,6 +11,9 @@ import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
 import com.microsoft.azure.sdk.iot.device.transport.IotHubTransportMessage;
 import mockit.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.io.IOException;
 import java.util.Date;
@@ -25,6 +28,7 @@ import static org.junit.Assert.*;
  * 100% methods covered
  * 98% lines covered
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class DeviceTwinTest
 {
     @Mocked

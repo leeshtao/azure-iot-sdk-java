@@ -6,6 +6,9 @@ import com.microsoft.azure.sdk.iot.device.transport.amqps.*;
 import mockit.*;
 import org.apache.qpid.proton.engine.*;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import javax.net.ssl.SSLContext;
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ import static org.junit.Assert.*;
  * Methods: 100%
  * Lines: 99%
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class AmqpsSessionManagerTest
 {
     @Mocked

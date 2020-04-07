@@ -13,6 +13,9 @@ import com.microsoft.azure.sdk.iot.service.auth.SymmetricKey;
 import com.microsoft.azure.sdk.iot.service.auth.X509Thumbprint;
 import mockit.Deencapsulation;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -23,6 +26,7 @@ import static org.junit.Assert.assertNotNull;
  * 94% Methods
  * 96% lines
  */
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
 public class ExportImportDeviceTest
 {
     private static final String SAMPLE_THUMBPRINT = "0000000000000000000000000000000000000000";

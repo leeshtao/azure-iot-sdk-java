@@ -14,6 +14,9 @@ import mockit.*;
 import org.apache.commons.codec.binary.Base32;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -36,6 +39,7 @@ import static junit.framework.TestCase.assertEquals;
      SecurityProviderTpm : 95% lines, 100% methods
 
  */
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class SecurityProviderSymmetricKeyTest
 {
     private static final byte[] testSymKey = "symmkey".getBytes();

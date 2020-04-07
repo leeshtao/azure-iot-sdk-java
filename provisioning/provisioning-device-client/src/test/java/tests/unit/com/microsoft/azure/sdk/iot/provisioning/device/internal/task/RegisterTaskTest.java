@@ -26,9 +26,13 @@ import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProvider;
 import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProviderSymmetricKey;
 import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProviderTpm;
 import com.microsoft.azure.sdk.iot.provisioning.security.SecurityProviderX509;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import mockit.*;
 import mockit.integration.junit4.JMockit;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import org.junit.runner.RunWith;
 
 import javax.net.ssl.SSLContext;
@@ -44,6 +48,7 @@ import static org.junit.Assert.assertNotNull;
     Coverage : 88% Method, 92% Line (private classes are non testable)
  */
 @RunWith(JMockit.class)
+@Category({UnitTestCategory.class, DeviceProvisioningServiceTestCategory.class})
 public class RegisterTaskTest
 {
     private static final String TEST_REGISTRATION_ID = "testRegistrationId";
@@ -302,6 +307,7 @@ public class RegisterTaskTest
     }
 
     @Test (expected = ProvisioningDeviceClientException.class)
+    @Category(LongRunningTestCategory.class)
     public void authenticateWithX509ThrowsIfNullResponseReceivedInMaxTime() throws Exception
     {
         //arrange
@@ -585,6 +591,7 @@ public class RegisterTaskTest
 
     //Tests_SRS_RegisterTask_25_012: [ If the provided security client is for Key then, this method shall throw ProvisioningDeviceClientException if null response is received. ]
     @Test (expected = ProvisioningDeviceClientException.class)
+    @Category(LongRunningTestCategory.class)
     public void authenticateWithSasTokenNonceThrowsIfNoResponseReceivedInMaxTimeForNonce() throws Exception
     {
         //arrange
@@ -612,6 +619,7 @@ public class RegisterTaskTest
     }
 
     @Test (expected = ProvisioningDeviceClientException.class)
+    @Category(LongRunningTestCategory.class)
     public void authenticateWithSasTokenNonceThrowsIfNullResponseReceivedInMaxTimeForNonce() throws Exception
     {
         //arrange
@@ -1038,6 +1046,7 @@ public class RegisterTaskTest
 
     //Tests_SRS_RegisterTask_25_017: [ If the provided security client is for Key then, this method shall throw ProvisioningDeviceClientException if null response to authenticateWithProvisioningService is received. ]
     @Test (expected = ProvisioningDeviceClientAuthenticationException.class)
+    @Category(LongRunningTestCategory.class)
     public void authenticateWithSasTokenThrowsIfNoResponseReceivedInMaxTime() throws Exception
     {
         //arrange

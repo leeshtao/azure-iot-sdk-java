@@ -9,6 +9,9 @@ import mockit.Deencapsulation;
 import mockit.Mocked;
 import mockit.NonStrictExpectations;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import com.microsoft.azure.sdk.iot.testcategories.UnitTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
 
 import java.net.URISyntaxException;
 
@@ -19,7 +22,8 @@ import static org.junit.Assert.*;
  * Methods: 100%
  * Lines: 97%
  */
-public class IotHubConnectionStringTest 
+@Category({UnitTestCategory.class, IoTHubTestCategory.class})
+public class IotHubConnectionStringTest
 {
     private static final String VALID_HUBNAME = "iothub";
     private static final String VALID_HOSTNAME = VALID_HUBNAME + ".device.com";
