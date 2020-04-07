@@ -9,6 +9,7 @@ import com.microsoft.appcenter.espresso.Factory;
 import com.microsoft.appcenter.espresso.ReportHelper;
 import com.microsoft.azure.sdk.iot.android.BuildConfig;
 import com.microsoft.azure.sdk.iot.android.helper.LongRunningTestAnnotation;
+import com.microsoft.azure.sdk.iot.android.helper.ShortRunningTestAnnotation;
 import com.microsoft.azure.sdk.iot.android.helper.TestGroup2;
 import com.microsoft.azure.sdk.iot.common.helpers.Rerun;
 import com.microsoft.azure.sdk.iot.common.setup.provisioning.ProvisioningCommon;
@@ -23,9 +24,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Collection;
 
-@TestGroup2
-@RunWith(Parameterized.class)
-public class ProvisioningClientX509AndroidRunner extends ProvisioningTests
+public class ProvisioningClientX509AndroidRunner
 {
     @Rule
     public Rerun count = new Rerun(3);
@@ -33,31 +32,15 @@ public class ProvisioningClientX509AndroidRunner extends ProvisioningTests
     @Rule
     public ReportHelper reportHelper = Factory.getReportHelper();
 
-    public ProvisioningClientX509AndroidRunner(ProvisioningDeviceClientTransportProtocol protocol, AttestationType attestationType)
-    {
-        super(protocol, attestationType);
-    }
-
-    //This function is run before even the @BeforeClass annotation, so it is used as the @BeforeClass method
-    @Parameterized.Parameters(name = "{0} with {1}")
-    public static Collection inputs() throws Exception
-    {
-        iotHubConnectionString = BuildConfig.IotHubConnectionString;
-        isBasicTierHub = Boolean.parseBoolean(BuildConfig.IsBasicTierHub);
-        provisioningServiceConnectionString = BuildConfig.DeviceProvisioningServiceConnectionString;
-        provisioningServiceIdScope = BuildConfig.DeviceProvisioningServiceIdScope;
-        provisioningServiceGlobalEndpointWithInvalidCert = BuildConfig.InvalidDeviceProvisioningServiceGlobalEndpoint;
-        provisioningServiceWithInvalidCertConnectionString = BuildConfig.InvalidDeviceProvisioningServiceConnectionString;
-        farAwayIotHubConnectionString = BuildConfig.FarAwayIotHubConnectionString;
-        customAllocationWebhookUrl = BuildConfig.CustomAllocationWebhookUrl;
-
-        return ProvisioningCommon.inputs(AttestationType.X509); //tpm tests can't be run on Android until infrastructure is setup
+    @Test
+    @LongRunningTestAnnotation
+    public void longRunningTest() throws Exception {
+        throw new Exception("Extra test!");
     }
 
     @Test
-    @LongRunningTestAnnotation
-    public void someExtraTest() throws Exception {
-        throw new Exception("Extra test!");
+    @ShortRunningTestAnnotation
+    public void shortRunningTest() throws Exception {
     }
 
     @After

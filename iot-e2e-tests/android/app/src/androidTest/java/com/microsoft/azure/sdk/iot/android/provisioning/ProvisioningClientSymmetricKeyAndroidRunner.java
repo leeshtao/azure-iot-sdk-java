@@ -9,6 +9,7 @@ import com.microsoft.appcenter.espresso.Factory;
 import com.microsoft.appcenter.espresso.ReportHelper;
 import com.microsoft.azure.sdk.iot.android.BuildConfig;
 import com.microsoft.azure.sdk.iot.android.helper.LongRunningTestAnnotation;
+import com.microsoft.azure.sdk.iot.android.helper.ShortRunningTestAnnotation;
 import com.microsoft.azure.sdk.iot.android.helper.TestGroup1;
 import com.microsoft.azure.sdk.iot.common.helpers.Rerun;
 import com.microsoft.azure.sdk.iot.common.setup.provisioning.ProvisioningCommon;
@@ -23,9 +24,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Collection;
 
-@TestGroup1
-@RunWith(Parameterized.class)
-public class ProvisioningClientSymmetricKeyAndroidRunner extends ProvisioningTests
+public class ProvisioningClientSymmetricKeyAndroidRunner
 {
     @Rule
     public Rerun count = new Rerun(3);
@@ -33,31 +32,15 @@ public class ProvisioningClientSymmetricKeyAndroidRunner extends ProvisioningTes
     @Rule
     public ReportHelper reportHelper = Factory.getReportHelper();
 
-    public ProvisioningClientSymmetricKeyAndroidRunner(ProvisioningDeviceClientTransportProtocol protocol, AttestationType attestationType)
-    {
-        super(protocol, attestationType);
-    }
-
-    //This function is run before even the @BeforeClass annotation, so it is used as the @BeforeClass method
-    @Parameterized.Parameters(name = "{0} with {1}")
-    public static Collection inputs() throws Exception
-    {
-        iotHubConnectionString = BuildConfig.IotHubConnectionString;
-        isBasicTierHub = Boolean.parseBoolean(BuildConfig.IsBasicTierHub);
-        provisioningServiceConnectionString = BuildConfig.DeviceProvisioningServiceConnectionString;
-        provisioningServiceIdScope = BuildConfig.DeviceProvisioningServiceIdScope;
-        provisioningServiceGlobalEndpointWithInvalidCert = BuildConfig.InvalidDeviceProvisioningServiceGlobalEndpoint;
-        provisioningServiceWithInvalidCertConnectionString = BuildConfig.InvalidDeviceProvisioningServiceConnectionString;
-        farAwayIotHubConnectionString = BuildConfig.FarAwayIotHubConnectionString;
-        customAllocationWebhookUrl = BuildConfig.CustomAllocationWebhookUrl;
-
-        return ProvisioningCommon.inputs(AttestationType.SYMMETRIC_KEY);
+    @Test
+    @LongRunningTestAnnotation
+    public void longRunningTest() throws Exception {
+        throw new Exception("Extra test!");
     }
 
     @Test
-    @LongRunningTestAnnotation
-    public void someExtraTest() throws Exception {
-        throw new Exception("Extra test!");
+    @ShortRunningTestAnnotation
+    public void shortRunningTest() throws Exception {
     }
 
     @After
