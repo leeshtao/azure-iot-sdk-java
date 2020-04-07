@@ -30,6 +30,7 @@ import com.microsoft.azure.sdk.iot.service.exceptions.IotHubNotFoundException;
 import com.microsoft.azure.sdk.iot.testcategories.DeviceProvisioningServiceTestCategory;
 import com.microsoft.azure.sdk.iot.testcategories.InvalidCertificateTestCategory;
 import com.microsoft.azure.sdk.iot.testcategories.IoTHubTestCategory;
+import com.microsoft.azure.sdk.iot.testcategories.LongRunningTestCategory;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
@@ -125,6 +126,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(LongRunningTestCategory.class)
     public void groupEnrollmentCanBlockReprovisioning() throws Exception
     {
         ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
@@ -140,6 +142,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(LongRunningTestCategory.class)
     @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
     public void individualEnrollmentReprovisioningCanKeepTwin() throws Exception
     {
@@ -151,6 +154,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(LongRunningTestCategory.class)
     @ConditionalIgnoreRule.ConditionalIgnore(condition = StandardTierOnlyRule.class)
     public void individualEnrollmentReprovisioningCanResetTwin() throws Exception
     {
@@ -162,6 +166,7 @@ public class ProvisioningTests extends ProvisioningCommon
     }
 
     @Test
+    @Category(LongRunningTestCategory.class)
     public void individualEnrollmentCanBlockReprovisioning() throws Exception
     {
         ReprovisionPolicy reprovisionPolicy = new ReprovisionPolicy();
