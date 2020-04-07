@@ -6,27 +6,16 @@
 
 function IsPullRequestBuild
 {
-	return !($env:TARGET_BRANCH -and $env:TARGET_BRANCH.toLower().Contains("system.pullrequest.targetbranch"))
+	return $true
 }
 
 function ShouldSkipIotHubTests
 {
-	if (!IsPullRequestBuild)
-	{
-		return $false
-	}
-
-	return !(DoChangesAffectAnyOfFolders @("iothub", "common", "shared", "e2e", "vsts"))
+	return $true
 }
 
 function ShouldSkipDPSTests
 {
-	if (ShouldSkipIotHubTests)
-	{
-		return !(DoChangesAffectAnyOfFolders @("Provisioning", "Security"))
-	}
-
-	#Provisioning tests depend on iot hub packages, so if iot hub tests aren't being skipped, neither should provisioning tests
 	return $false
 }
 
