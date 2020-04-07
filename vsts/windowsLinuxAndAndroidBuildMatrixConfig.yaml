@@ -189,76 +189,7 @@ jobs:
         ANDROID_TEST_GROUP_ID: TestGroup3
       TestGroup4:
         ANDROID_TEST_GROUP_ID: TestGroup4
-      TestGroup5:
-        ANDROID_TEST_GROUP_ID: TestGroup5
-      TestGroup6:
-        ANDROID_TEST_GROUP_ID: TestGroup6
-      TestGroup7:
-        ANDROID_TEST_GROUP_ID: TestGroup7
-      TestGroup8:
-        ANDROID_TEST_GROUP_ID: TestGroup8
-      TestGroup9:
-        ANDROID_TEST_GROUP_ID: TestGroup9
-      TestGroup10:
-        ANDROID_TEST_GROUP_ID: TestGroup10
-      TestGroup11:
-        ANDROID_TEST_GROUP_ID: TestGroup11
-      TestGroup12:
-        ANDROID_TEST_GROUP_ID: TestGroup12
-      TestGroup13:
-        ANDROID_TEST_GROUP_ID: TestGroup13
-      TestGroup14:
-        ANDROID_TEST_GROUP_ID: TestGroup14
-      TestGroup15:
-        ANDROID_TEST_GROUP_ID: TestGroup15
-      TestGroup16:
-        ANDROID_TEST_GROUP_ID: TestGroup16
-      TestGroup17:
-        ANDROID_TEST_GROUP_ID: TestGroup17
-      TestGroup18:
-        ANDROID_TEST_GROUP_ID: TestGroup18
-      TestGroup19:
-        ANDROID_TEST_GROUP_ID: TestGroup19
-      TestGroup20:
-        ANDROID_TEST_GROUP_ID: TestGroup20
-      TestGroup21:
-        ANDROID_TEST_GROUP_ID: TestGroup21
-      TestGroup22:
-        ANDROID_TEST_GROUP_ID: TestGroup22
-      TestGroup23:
-        ANDROID_TEST_GROUP_ID: TestGroup23
-      TestGroup24:
-        ANDROID_TEST_GROUP_ID: TestGroup24
-      TestGroup25:
-        ANDROID_TEST_GROUP_ID: TestGroup25
-      TestGroup26:
-        ANDROID_TEST_GROUP_ID: TestGroup26
-      TestGroup27:
-        ANDROID_TEST_GROUP_ID: TestGroup27
-      TestGroup28:
-        ANDROID_TEST_GROUP_ID: TestGroup28
-      TestGroup29:
-        ANDROID_TEST_GROUP_ID: TestGroup29
-      TestGroup30:
-        ANDROID_TEST_GROUP_ID: TestGroup30
-      TestGroup31:
-        ANDROID_TEST_GROUP_ID: TestGroup31
-      TestGroup32:
-        ANDROID_TEST_GROUP_ID: TestGroup32
-      TestGroup33:
-        ANDROID_TEST_GROUP_ID: TestGroup33
-      TestGroup34:
-        ANDROID_TEST_GROUP_ID: TestGroup34
-      TestGroup35:
-        ANDROID_TEST_GROUP_ID: TestGroup35
-      TestGroup36:
-        ANDROID_TEST_GROUP_ID: TestGroup36
-      TestGroup37:
-        ANDROID_TEST_GROUP_ID: TestGroup37
-      TestGroup38:
-        ANDROID_TEST_GROUP_ID: TestGroup38
-      TestGroup39:
-        ANDROID_TEST_GROUP_ID: TestGroup39
+
       
   displayName: Android Test
   dependsOn: AndroidBuild
