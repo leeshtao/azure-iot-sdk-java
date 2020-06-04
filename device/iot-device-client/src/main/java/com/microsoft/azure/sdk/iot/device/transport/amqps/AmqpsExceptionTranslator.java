@@ -6,11 +6,15 @@ package com.microsoft.azure.sdk.iot.device.transport.amqps;
 import com.microsoft.azure.sdk.iot.device.exceptions.ProtocolException;
 import com.microsoft.azure.sdk.iot.device.exceptions.TransportException;
 import com.microsoft.azure.sdk.iot.device.transport.amqps.exceptions.*;
+import org.apache.qpid.proton.amqp.transport.ErrorCondition;
 
 public class AmqpsExceptionTranslator
 {
-    static TransportException convertToAmqpException(String exceptionCode, String description)
+    static TransportException convertToAmqpException(ErrorCondition error)
     {
+        String exceptionCode = error.getCondition() != null ? error.getCondition().toString() : "unknown";
+        String description = error.getDescription();
+
         switch (exceptionCode)
         {
             case AmqpConnectionForcedException.errorCode:
@@ -95,7 +99,9 @@ public class AmqpsExceptionTranslator
                 return  new ProtonIOException(description);
             default:
                 // Codes_SRS_AMQPSEXCEPTIONTRANSLATOR_34_026: [The function shall map all other amqp exception codes to the generic TransportException "ProtocolException".]
-                return new ProtocolException(description);
+                TransportException t = new TransportException("An unknown transport exception occurred");
+                t.setRetryable(true);
+                return t;
         }
     }
 }
