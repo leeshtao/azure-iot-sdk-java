@@ -254,17 +254,17 @@ public abstract class AmqpsLinksHandler extends BaseHandler
     {
         if (this.senderLink == null)
         {
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
 
         if (deliveryTag.length == 0)
         {
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
 
         if (this.senderLink.getLocalState() != EndpointState.ACTIVE || this.senderLink.getRemoteState() != EndpointState.ACTIVE)
         {
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
 
         Delivery delivery = this.senderLink.delivery(deliveryTag);
@@ -289,14 +289,14 @@ public abstract class AmqpsLinksHandler extends BaseHandler
             }
 
             this.log.trace("Message was sent over {} sender link with delivery tag {} and hash {}", getLinkInstanceType(), new String(deliveryTag), delivery.hashCode());
-            return new AmqpsSendReturnValue(true, delivery.hashCode(), deliveryTag);
+            return new AmqpsSendReturnValue(true, deliveryTag);
         }
         catch (Exception e)
         {
             this.log.warn("Encountered a problem while sending a message on {} sender link with link correlation id {}", getLinkInstanceType(), this.linkCorrelationId, e);
             this.senderLink.advance();
             delivery.free();
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
     }
 

@@ -100,7 +100,7 @@ public final class AmqpsTelemetryLinksHandler extends AmqpsLinksHandler
         else
         {
             // Codes_SRS_AMQPSDEVICETELEMETRY_12_006: [The function shall return an AmqpsSendReturnValue object with false and -1 if the message type is not DEVICE_TELEMETRY.]
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
     }
 

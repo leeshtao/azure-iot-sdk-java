@@ -114,7 +114,7 @@ public final class AmqpsTwinLinksHandler extends AmqpsLinksHandler
         else
         {
             // Codes_SRS_AMQPSDEVICETWIN_12_011: [The function shall return with AmqpsSendReturnValue with false success and -1 delivery hash.]
-            return new AmqpsSendReturnValue(false, -1);
+            return new AmqpsSendReturnValue(false);
         }
     }
 

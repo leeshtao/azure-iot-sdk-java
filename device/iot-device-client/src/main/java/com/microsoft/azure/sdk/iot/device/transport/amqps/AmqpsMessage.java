@@ -5,11 +5,9 @@
 
 package com.microsoft.azure.sdk.iot.device.transport.amqps;
 
-import com.microsoft.azure.sdk.iot.device.DeviceClientConfig;
 import com.microsoft.azure.sdk.iot.device.MessageType;
-import org.apache.qpid.proton.amqp.messaging.Accepted;
-import org.apache.qpid.proton.amqp.messaging.Rejected;
-import org.apache.qpid.proton.amqp.messaging.Released;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.qpid.proton.amqp.transport.DeliveryState;
 import org.apache.qpid.proton.engine.Delivery;
 import org.apache.qpid.proton.message.impl.MessageImpl;
@@ -20,8 +18,12 @@ import org.apache.qpid.proton.message.impl.MessageImpl;
  */
 public class AmqpsMessage extends MessageImpl
 {
-    private Delivery _delivery;
+    @Getter
+    @Setter
+    private Delivery delivery;
 
+    @Getter
+    @Setter
     private MessageType amqpsMessageType;
 
     /**
@@ -30,37 +32,7 @@ public class AmqpsMessage extends MessageImpl
      */
     public void acknowledge(DeliveryState ackType)
     {
-        _delivery.disposition(ackType);
-        _delivery.settle();
-    }
-
-    /**
-     * Set this AmqpsMessage Delivery Object
-     * @param _delivery the new Delivery
-     */
-    public void setDelivery(Delivery _delivery)
-    {
-        this._delivery = _delivery;
-    }
-
-    /**
-     * Get the AmqpsMessageMessageType
-     * @return The type of the message
-     */
-    public MessageType getAmqpsMessageType()
-    {
-        // Codes_SRS_AMQPSMESSAGE_12_001: [Getter for the MessageType.]
-        return amqpsMessageType;
-    }
-
-    /**
-     * Set the AmqpsMessageMessageType
-     *
-     * @param amqpsMessageType the new AmqpsMessageMessageType
-     */
-    public void setAmqpsMessageType(MessageType amqpsMessageType)
-    {
-        // Codes_SRS_AMQPSMESSAGE_12_002: [Setter for the MessageType.]
-        this.amqpsMessageType = amqpsMessageType;
+        delivery.disposition(ackType);
+        delivery.settle();
     }
 }
