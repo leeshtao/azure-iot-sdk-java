@@ -21,7 +21,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Defines the authentication session that exists in every SAS based amqp connection. There is one CBS sender link to send
+ * Defines the authentication links that exists in every SAS based amqp connection. There is one CBS sender link to send
  * SAS tokens over, and one CBS receiver link to receive authentication status from.
  */
 @Slf4j

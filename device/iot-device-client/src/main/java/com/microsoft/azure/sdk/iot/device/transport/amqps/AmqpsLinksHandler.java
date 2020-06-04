@@ -214,7 +214,7 @@ public abstract class AmqpsLinksHandler extends BaseHandler
     @Override
     public void onLinkRemoteClose(Event event)
     {
-        // TODO check with eventhub SDK
+        // TODO double check that link, session and connection level all have roughly the same logic here
 
         Link link = event.getLink();
 
