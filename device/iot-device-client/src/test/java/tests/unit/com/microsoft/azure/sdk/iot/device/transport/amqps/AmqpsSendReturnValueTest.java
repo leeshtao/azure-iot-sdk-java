@@ -76,9 +76,8 @@ public class AmqpsSendReturnValueTest
     {
         //arrange
         boolean isDeliverySuccessful = true;
-        int deliveryHash = 42;
         byte[] deliveryTag = new byte[] {1,2,3,4};
-        AmqpsSendReturnValue amqpsSendReturnValue = Deencapsulation.newInstance(AmqpsSendReturnValue.class, isDeliverySuccessful, deliveryHash, deliveryTag);
+        AmqpsSendReturnValue amqpsSendReturnValue = Deencapsulation.newInstance(AmqpsSendReturnValue.class, isDeliverySuccessful, deliveryTag);
 
         //act
         byte[] actualDeliveryTag = amqpsSendReturnValue.getDeliveryTag();
