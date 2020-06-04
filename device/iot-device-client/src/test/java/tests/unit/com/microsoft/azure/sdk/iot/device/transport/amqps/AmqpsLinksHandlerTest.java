@@ -377,26 +377,6 @@ public class AmqpsLinksHandlerTest
         };
     }
 
-    /*
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_019: [**The function shall throw IllegalStateException if the sender link is not initialized.**]**
-     */
-    @Test
-    public void sendMessageAndGetDeliveryHashReturnsFailureIfSenderLinkNull()
-    {
-        //arrange
-        AmqpsLinksHandlerMock amqpsDeviceOperations = new AmqpsLinksHandlerMock(mockDeviceClientConfig);
-        byte[] msgData = new byte[1];
-        int offset = 0;
-        int length = 1;
-        byte[] deliveryTag = new byte[1];
-        Deencapsulation.setField(amqpsDeviceOperations, "senderLink", null);
-
-        //act
-        AmqpsSendReturnValue result = Deencapsulation.invoke(amqpsDeviceOperations, "sendMessageAndGetDeliveryTag", MessageType.DEVICE_TELEMETRY, msgData, offset, length, deliveryTag);
-        int actualHash = Deencapsulation.getField(result, "deliveryHash");
-        assertEquals(-1, actualHash);
-    }
-
     // Tests_SRS_AMQPSDEVICEOPERATIONS_12_020: [The function shall throw IllegalArgumentException if the deliveryTag length is zero.]
     @Test
     public void sendMessageAndGetDeliveryHashReturnsFailureIfDeliveryTagNull()
@@ -411,67 +391,6 @@ public class AmqpsLinksHandlerTest
 
         //act
         Deencapsulation.invoke(amqpsDeviceOperations, "sendMessageAndGetDeliveryTag", MessageType.DEVICE_TELEMETRY, msgData, offset, length, deliveryTag);
-    }
-
-    /*
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_021: [**The function shall create a Delivery object using the sender link and the deliveryTag.**]**
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_022: [**The function shall try to send the message data using the sender link with the offset and length argument.**]**
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_023: [**The function shall advance the sender link.**]**
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_024: [**The function shall set the delivery hash to the value returned by the sender link.**]**
-    **Tests_SRS_AMQPSDEVICEOPERATIONS_12_026: [**The function shall return with the delivery hash.**]**
-    */
-    @Test
-    public void sendMessageAndGetDeliveryHashSendSuccessful()
-    {
-        //arrange
-        AmqpsLinksHandlerMock amqpsDeviceOperations = new AmqpsLinksHandlerMock(mockDeviceClientConfig);
-        final byte[] msgData = new byte[1];
-        final int offset = 0;
-        final int length = 1;
-        final byte[] deliveryTag = "0".getBytes();
-        Deencapsulation.setField(amqpsDeviceOperations, "senderLink", mockSender);
-        new NonStrictExpectations()
-        {
-            {
-                mockSender.getRemoteState();
-                result = EndpointState.ACTIVE;
-
-                mockSender.getLocalState();
-                result = EndpointState.ACTIVE;
-
-                mockSender.delivery(deliveryTag);
-                result = mockDelivery;
-
-                mockDelivery.hashCode();
-                result = new byte[1];
-
-                mockSender.send(msgData, offset, length);
-                result = length;
-
-                mockSender.advance();
-                result = true;
-            }
-        };
-
-        //act
-        AmqpsSendReturnValue amqpsSendReturnValue = Deencapsulation.invoke(amqpsDeviceOperations, "sendMessageAndGetDeliveryTag", MessageType.DEVICE_TELEMETRY, msgData, offset, length, deliveryTag);
-
-        //assert
-        int deliveryHash = Deencapsulation.invoke(amqpsSendReturnValue, "getDeliveryHash");
-        assertTrue(deliveryHash != -1);
-        new VerificationsInOrder()
-        {
-            {
-                mockSender.delivery(deliveryTag);
-                times = 1;
-                mockSender.send(msgData, offset, length);
-                times = 1;
-                mockSender.advance();
-                times = 1;
-                mockDelivery.hashCode();
-                times = 1;
-            }
-        };
     }
 
     /*
