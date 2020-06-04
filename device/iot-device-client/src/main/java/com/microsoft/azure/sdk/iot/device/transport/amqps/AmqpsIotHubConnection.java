@@ -90,7 +90,7 @@ public final class AmqpsIotHubConnection extends ErrorLoggingBaseHandler impleme
     private Reactor reactor;
     private Connection connection;
     private ArrayList<AmqpsSessionHandler> sessionHandlerList = new ArrayList<>();
-    private ArrayList<SasTokenRenewalHandler> sasTokenRenwalHandlerList = new ArrayList<>();
+    private ArrayList<AmqpsSasTokenRenewalHandler> sasTokenRenwalHandlerList = new ArrayList<>();
     private CbsSessionHandler cbsSessionHandler;
 
     /**
@@ -402,22 +402,22 @@ public final class AmqpsIotHubConnection extends ErrorLoggingBaseHandler impleme
 
                 // Sas token renewal handler list lives between reconnection attempts, so it may not be necessary to create
                 // a new one for this device session.
-                SasTokenRenewalHandler sasTokenRenewalHandler = null;
-                for (SasTokenRenewalHandler existingSasTokenRenewalHandler : sasTokenRenwalHandlerList) {
-                    if (existingSasTokenRenewalHandler.amqpsSessionHandler.equals(amqpsSessionHandler))
+                AmqpsSasTokenRenewalHandler amqpsSasTokenRenewalHandler = null;
+                for (AmqpsSasTokenRenewalHandler existingAmqpsSasTokenRenewalHandler : sasTokenRenwalHandlerList) {
+                    if (existingAmqpsSasTokenRenewalHandler.amqpsSessionHandler.equals(amqpsSessionHandler))
                     {
-                        sasTokenRenewalHandler = existingSasTokenRenewalHandler;
+                        amqpsSasTokenRenewalHandler = existingAmqpsSasTokenRenewalHandler;
                         break;
                     }
                 }
 
-                if (sasTokenRenewalHandler == null)
+                if (amqpsSasTokenRenewalHandler == null)
                 {
-                    sasTokenRenewalHandler = new SasTokenRenewalHandler(cbsSessionHandler, amqpsSessionHandler);
-                    sasTokenRenwalHandlerList.add(sasTokenRenewalHandler);
+                    amqpsSasTokenRenewalHandler = new AmqpsSasTokenRenewalHandler(cbsSessionHandler, amqpsSessionHandler);
+                    sasTokenRenwalHandlerList.add(amqpsSasTokenRenewalHandler);
                 }
 
-                sasTokenRenewalHandler.scheduleRenewal(event.getReactor());
+                amqpsSasTokenRenewalHandler.scheduleRenewal(event.getReactor());
             }
         }
         else
@@ -647,11 +647,11 @@ public final class AmqpsIotHubConnection extends ErrorLoggingBaseHandler impleme
 
         if (this.deviceClientConfig.getAuthenticationType() == DeviceClientConfig.AuthType.SAS_TOKEN)
         {
-            for (SasTokenRenewalHandler sasTokenRenewalHandler : sasTokenRenwalHandlerList)
+            for (AmqpsSasTokenRenewalHandler amqpsSasTokenRenewalHandler : sasTokenRenwalHandlerList)
             {
                 try
                 {
-                    sasTokenRenewalHandler.sendAuthenticationMessage();
+                    amqpsSasTokenRenewalHandler.sendAuthenticationMessage();
                 }
                 catch (TransportException e)
                 {

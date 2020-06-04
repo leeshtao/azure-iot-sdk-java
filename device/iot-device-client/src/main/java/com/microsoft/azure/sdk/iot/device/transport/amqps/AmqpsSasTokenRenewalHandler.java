@@ -12,7 +12,7 @@ import org.apache.qpid.proton.reactor.Reactor;
 
 @Slf4j
 @AllArgsConstructor
-public class SasTokenRenewalHandler extends BaseHandler implements AuthenticationMessageCallback
+public class AmqpsSasTokenRenewalHandler extends BaseHandler implements AuthenticationMessageCallback
 {
     private static final int RETRY_INTERVAL_MILLISECONDS = 5000;
 
