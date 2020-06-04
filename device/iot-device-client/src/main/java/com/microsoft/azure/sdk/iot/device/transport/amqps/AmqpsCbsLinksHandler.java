@@ -33,8 +33,8 @@ public final class AmqpsCbsLinksHandler extends AmqpsLinksHandler
     public static final String SENDER_LINK_ENDPOINT_PATH = "$cbs";
     public static final String RECEIVER_LINK_ENDPOINT_PATH = "$cbs";
 
-    public static final String SENDER_LINK_TAG_PREFIX = "cbs-sender-";
-    public static final String RECEIVER_LINK_TAG_PREFIX = "cbs-receiver-";
+    public static final String SENDER_LINK_TAG_PREFIX = "cbs-sender";
+    public static final String RECEIVER_LINK_TAG_PREFIX = "cbs-receiver";
 
     private static final String CBS_TO = "$cbs";
     private static final String CBS_REPLY = "cbs";
@@ -64,8 +64,8 @@ public final class AmqpsCbsLinksHandler extends AmqpsLinksHandler
 
         this.linkStateCallback = linkStateCallback;
 
-        this.senderLinkTag = SENDER_LINK_TAG_PREFIX + senderLinkTag;
-        this.receiverLinkTag = RECEIVER_LINK_TAG_PREFIX + receiverLinkTag;
+        this.senderLinkTag = SENDER_LINK_TAG_PREFIX;
+        this.receiverLinkTag = RECEIVER_LINK_TAG_PREFIX;
 
         this.senderLinkAddress = SENDER_LINK_ENDPOINT_PATH;
         this.receiverLinkAddress = RECEIVER_LINK_ENDPOINT_PATH;
